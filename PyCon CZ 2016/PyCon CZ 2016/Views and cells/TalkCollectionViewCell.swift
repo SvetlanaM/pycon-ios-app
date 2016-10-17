@@ -18,6 +18,7 @@ class TalkCollectionViewCell: UICollectionViewCell {
     
     required init(coder aDecoder : NSCoder) {
         super.init(coder: aDecoder)!
+        
     }
     
     override init(frame: CGRect) {
@@ -39,7 +40,7 @@ class TalkCollectionViewCell: UICollectionViewCell {
         
         let titleFrame = CGRectMake(90, -100, (self.frame.size.width)-110, 300)
         title = UILabel(frame: titleFrame)
-        //title.font = UIFont.systemFontOfSize(16.0)
+        title.font = UIFont.systemFontOfSize(16.0)
         title.textColor = .blackColor()
         title.textAlignment = .Left
         title.numberOfLines = 2
@@ -57,10 +58,12 @@ class TalkCollectionViewCell: UICollectionViewCell {
     }
     
     func configureCell(talks : Talk) {
-        date.text = talks.startDate! + "\n" + talks.startTime! + "\n" + talks.endTime!
+        if let sDate = talks.startDate, let sStartTime = talks.startTime, let sEndTime = talks.endTime {
+            date.text = sDate + "\n" + sStartTime + "\n" + sEndTime
+        }
         title.text = talks.title
         speakerLabel.text = talks.speaker
-        setFontSize(title, type : talks.type!)
+        setFontSize(title, type : talks.type ?? "")
         
     }
     

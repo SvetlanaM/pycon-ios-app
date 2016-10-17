@@ -39,30 +39,29 @@ class TalkDetailViewController: UIViewController {
         
         // View setup
         self.view = UIView(frame: CGRectMake(0, 0, self.view.frame.width, self.view.frame.height))
-        self.view!.backgroundColor = UIColor(red: 247/255.0, green: 249/255.0, blue: 252/255.0, alpha: 1.0)
+        self.view.backgroundColor = UIColor(red: 247/255.0, green: 249/255.0, blue: 252/255.0, alpha: 1.0)
         
         // Image setup
         self.imageV = UIImageView(frame : CGRectMake(0, (self.view.frame.height) - 250, self.view.frame.width, 200))
         self.imageV?.image = UIImage(named: "pycon_overlay")
         self.imageV?.contentMode = .ScaleAspectFill
         self.imageV?.clipsToBounds = true
-        self.view!.addSubview(imageV!)
+        self.view.addSubview(imageV ?? UIImageView())
         
         // Text view setup
         self.textView = UIView(frame: CGRectMake(30, 40, self.view.frame.width-60, self.view.frame.height-150))
-        self.textView!.backgroundColor = UIColor.whiteColor()
-        self.textView!.layer.cornerRadius = 4.0;
-        self.textView!.layer.borderWidth = 1.0;
-        self.textView!.layer.borderColor = UIColor.clearColor().CGColor;
-        self.textView!.layer.masksToBounds = true;
-        
-        self.textView!.layer.shadowColor = UIColor(red: 205/255.0, green: 209/255.0, blue: 213/255.0, alpha: 1.0).CGColor
-        self.textView!.layer.shadowOffset = CGSizeMake(0, 4.0);
-        self.textView!.layer.shadowRadius = 5.0;
-        self.textView!.layer.shadowOpacity = 1.0;
-        self.textView!.layer.masksToBounds = false;
-        self.textView!.layer.shadowPath = UIBezierPath(roundedRect:self.textView!.bounds, cornerRadius:self.textView!.layer.cornerRadius).CGPath
-        self.view.addSubview(self.textView!)
+        self.textView?.backgroundColor = UIColor.whiteColor()
+        self.textView?.layer.cornerRadius = 4.0;
+        self.textView?.layer.borderWidth = 1.0;
+        self.textView?.layer.borderColor = UIColor.clearColor().CGColor;
+        self.textView?.layer.masksToBounds = true;
+        self.textView?.layer.shadowColor = UIColor(red: 205/255.0, green: 209/255.0, blue: 213/255.0, alpha: 1.0).CGColor
+        self.textView?.layer.shadowOffset = CGSizeMake(0, 4.0);
+        self.textView?.layer.shadowRadius = 5.0;
+        self.textView?.layer.shadowOpacity = 1.0;
+        self.textView?.layer.masksToBounds = false;
+        self.textView?.layer.shadowPath = UIBezierPath(roundedRect:self.textView!.bounds, cornerRadius:self.textView!.layer.cornerRadius).CGPath
+        self.view.addSubview(self.textView ?? UIView())
         
         
         
@@ -78,9 +77,7 @@ class TalkDetailViewController: UIViewController {
         speakerImage?.layer.cornerRadius = (speakerImage?.frame.height)!/2
         speakerImage?.clipsToBounds = true
         speakerImage?.contentMode = UIViewContentMode.ScaleAspectFill
-        
-        
-        textView!.addSubview(speakerImage!)
+        textView!.addSubview(speakerImage ?? UIImageView())
         
         // Title setup
         let titleFrame = CGRectMake(90, -40, (self.textView!.frame.width)-100, 200)
@@ -111,7 +108,9 @@ class TalkDetailViewController: UIViewController {
         self.textView!.addSubview(showDetailLabel)
         
         // Theme setup
-        let talkDescFrame = heightForView((talk?.talkDescription!)!)
+        
+        if let talkD = talk?.talkDescription {
+            let talkDescFrame = heightForView(talkD)
         talkDescLabel = UILabel(frame: talkDescFrame)
         talkDescLabel.font = UIFont.systemFontOfSize(16.0)
         talkDescLabel.textColor = UIColor.blackColor()
@@ -119,20 +118,18 @@ class TalkDetailViewController: UIViewController {
         talkDescLabel.numberOfLines = 0
         talkDescLabel.lineBreakMode = .ByWordWrapping
         
+        
         let border = CALayer()
         border.backgroundColor = UIColor(red: 205/255.0, green: 209/255.0, blue: 213/255.0, alpha: 1.0).CGColor
         border.frame = CGRect(x: 5, y: -15, width: talkDescFrame.width-15, height: 0.5)
-        
         talkDescLabel.layer.addSublayer(border)
-
-        
-        textView!.addSubview(talkDescLabel)
+            textView!.addSubview(talkDescLabel)
+        }
         
         let scrollView = UIScrollView(frame: CGRectMake(0, 0, self.view!.frame.width-60, self.textView!.frame.height))
-        scrollView.addSubview(speakerImage!)
+        scrollView.addSubview(speakerImage ?? UIImageView())
         scrollView.addSubview(self.talkDescLabel)
         scrollView.addSubview(talkTitle)
-        //scrollView.addSubview(showDetailLabel)
         scrollView.addSubview(speakerLabel)
         
         scrollView.contentSize = CGSize(width: self.textView!.frame.width, height: self.talkDescLabel.frame.height + 160)
@@ -141,12 +138,11 @@ class TalkDetailViewController: UIViewController {
         talkTitle.text = talk?.title
         speakerLabel.text = talk?.speaker
         talkDescLabel.text = talk?.talkDescription
-        //showDetailLabel.text = "Show more"
         
     }
     
     func heightForView(text:String) -> CGRect {
-        let label:UILabel = UILabel(frame: CGRectMake(0, 0, self.view!.frame.width-90, CGFloat.max))
+        let label:UILabel = UILabel(frame: CGRectMake(0, 0, self.view.frame.width-90, CGFloat.max))
         label.numberOfLines = 0
         label.lineBreakMode = .ByWordWrapping
         label.text = text

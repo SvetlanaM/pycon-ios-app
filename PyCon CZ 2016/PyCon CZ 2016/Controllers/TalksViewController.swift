@@ -22,6 +22,7 @@ class TalksViewController: UIViewController, UICollectionViewDelegateFlowLayout,
     override func viewDidLoad() {
         
         super.viewDidLoad()
+        
         SVProgressHUD.show()
         
         ref = FIRDatabase.database().reference().child("d105")
@@ -29,30 +30,21 @@ class TalksViewController: UIViewController, UICollectionViewDelegateFlowLayout,
         ref.keepSynced(true)
         startObservingDB()
         
-        
-        
         // Layout setup
         let layout = UICollectionViewFlowLayout()
-        
         layout.sectionInset = UIEdgeInsets(top: 20, left: 0, bottom: 170, right: 0)
         self.collection = UICollectionView(frame: CGRectMake(0, 80, self.view.frame.width, self.view.frame.height), collectionViewLayout: layout)
-        
         self.collection?.delegate = self
         self.collection?.dataSource = self
-        self.collection!.registerClass(TalkCollectionViewCell.self, forCellWithReuseIdentifier: "cell")
+        self.collection?.registerClass(TalkCollectionViewCell.self, forCellWithReuseIdentifier: "cell")
         self.view.addSubview(self.collection!)
         self.collection?.backgroundColor = UIColor(red: 246/255.0, green: 248/255.0, blue: 251/255.0, alpha: 1.0)
-        
-        
-    
     }
     
     @IBAction func shareOnTwitter(sender: UIBarButtonItem) {
         if SLComposeViewController.isAvailableForServiceType(SLServiceTypeTwitter){
             let twitterSheet:SLComposeViewController = SLComposeViewController(forServiceType: SLServiceTypeTwitter)
             twitterSheet.setInitialText("#pyconcz")
-            
-            
             self.presentViewController(twitterSheet, animated: true, completion: nil)
         } else {
             let alert = UIAlertController(title: "Accounts", message: "Please login to a Twitter account to share.", preferredStyle: UIAlertControllerStyle.Alert)
@@ -91,31 +83,28 @@ class TalksViewController: UIViewController, UICollectionViewDelegateFlowLayout,
         
     }
     
-    
-    
     // collection view cell setup
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("cell", forIndexPath: indexPath) as? TalkCollectionViewCell
-        cell?.backgroundColor = .whiteColor()
-
-        cell!.layer.cornerRadius = 10
-        cell!.contentView.layer.cornerRadius = 2.0;
-        cell!.contentView.layer.borderWidth = 1.0;
-        cell!.contentView.layer.borderColor = UIColor.clearColor().CGColor;
-        cell!.contentView.layer.masksToBounds = true;
         
-        cell!.layer.shadowColor = UIColor(red: 205/255.0, green: 209/255.0, blue: 213/255.0, alpha: 1.0).CGColor
-        cell!.layer.shadowOffset = CGSizeMake(0, 4.0);
-        cell!.layer.shadowRadius = 5.0;
-        cell!.layer.shadowOpacity = 1.0;
-        cell!.layer.masksToBounds = false;
-        cell!.layer.shadowPath = UIBezierPath(roundedRect:cell!.bounds, cornerRadius:cell!.contentView.layer.cornerRadius).CGPath;
-        // configure the cell
-        
-        
-        
-        cell?.configureCell(talks[indexPath.row])
-        return cell!
+        if let collCell = cell {
+            collCell.backgroundColor = .whiteColor()
+            collCell.layer.cornerRadius = 10
+            collCell.contentView.layer.cornerRadius = 2.0;
+            collCell.contentView.layer.borderWidth = 1.0;
+            collCell.contentView.layer.borderColor = UIColor.clearColor().CGColor;
+            collCell.contentView.layer.masksToBounds = true;
+            collCell.layer.shadowColor = UIColor(red: 205/255.0, green: 209/255.0, blue: 213/255.0, alpha: 1.0).CGColor
+            collCell.layer.shadowOffset = CGSizeMake(0, 4.0);
+            collCell.layer.shadowRadius = 5.0;
+            collCell.layer.shadowOpacity = 1.0;
+            collCell.layer.masksToBounds = false;
+            collCell.layer.shadowPath = UIBezierPath(roundedRect:cell!.bounds, cornerRadius:cell!.contentView.layer.cornerRadius).CGPath;
+            collCell.configureCell(talks[indexPath.row])
+            return collCell
+        } else {
+            return UICollectionViewCell()
+        }
     }
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -134,31 +123,24 @@ class TalksViewController: UIViewController, UICollectionViewDelegateFlowLayout,
         return CGSize(width: self.view.frame.width-50, height: 120)
     }
     
-    // add detail view on didselect
-    
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         
-        let cell = collectionView.cellForItemAtIndexPath(indexPath)
-        
-        if talks[indexPath.row].type == "event" {
-            cell?.selected = false
-        } else {
-            cell?.selected = true
-            let vc = TalkDetailViewController()
-            vc.talk = talks[indexPath.row]
-            self.navigationController?.showViewController(vc, sender: self)
+            let cell = collectionView.cellForItemAtIndexPath(indexPath)
+            if talks[indexPath.row].type == "event" {
+                cell?.selected = false
+            } else {
+                cell?.selected = true
+                let vc = TalkDetailViewController()
+                vc.talk = talks[indexPath.row]
+                self.navigationController?.showViewController(vc, sender: self)
+            }
         }
-        }
-    
-    
-    
     
     func checkDate(room : String) {
         let date = NSDate()
         let dateFormatter:NSDateFormatter = NSDateFormatter()
         dateFormatter.dateFormat = "dd.MM.yyyy HH:mm"
         let DateInFormat:String = dateFormatter.stringFromDate(date)
-        
         
         for talk in talks {
             let talkDate = talk.startDate! + " " + talk.endTime!
