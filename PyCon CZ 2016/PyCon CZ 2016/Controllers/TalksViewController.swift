@@ -9,6 +9,7 @@
 import UIKit
 import FirebaseDatabase
 import Social
+import SVProgressHUD
 
 class TalksViewController: UIViewController, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
     
@@ -21,12 +22,13 @@ class TalksViewController: UIViewController, UICollectionViewDelegateFlowLayout,
     override func viewDidLoad() {
         
         super.viewDidLoad()
-        
+        SVProgressHUD.show()
         
         ref = FIRDatabase.database().reference().child("d105")
         checkDate("d105")
         ref.keepSynced(true)
         startObservingDB()
+        
         
         
         // Layout setup
@@ -135,10 +137,20 @@ class TalksViewController: UIViewController, UICollectionViewDelegateFlowLayout,
     // add detail view on didselect
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        let vc = TalkDetailViewController()
-        vc.talk = talks[indexPath.row]
-        self.navigationController?.showViewController(vc, sender: self)
+        
+        let cell = collectionView.cellForItemAtIndexPath(indexPath)
+        
+        if talks[indexPath.row].type == "event" {
+            cell?.selected = false
+        } else {
+            cell?.selected = true
+            let vc = TalkDetailViewController()
+            vc.talk = talks[indexPath.row]
+            self.navigationController?.showViewController(vc, sender: self)
         }
+        }
+    
+    
     
     
     func checkDate(room : String) {
@@ -175,6 +187,7 @@ class TalksViewController: UIViewController, UICollectionViewDelegateFlowLayout,
             }
             
             self.collection?.reloadData()
+            SVProgressHUD.dismiss()
             
         }) {(error : NSError) in
             print(error.description)

@@ -30,9 +30,12 @@ class TalkDetailViewController: UIViewController {
         
         navigationItem.title = talk?.title
         navigationController!.navigationBar.tintColor = UIColor.whiteColor()
-        var twitterButton : UIBarButtonItem = UIBarButtonItem(image: UIImage(named: "twitter"), style: UIBarButtonItemStyle.Plain, target: self, action: "sendTwitter:")
-        self.navigationItem.rightBarButtonItem = twitterButton
+        let twitterButton : UIBarButtonItem = UIBarButtonItem(image: UIImage(named: "twitter"), style: UIBarButtonItemStyle.Plain, target: self, action: "sendTwitter:")
         
+        
+        let timelineButton : UIBarButtonItem = UIBarButtonItem(image: UIImage(named: "twitter"), style: UIBarButtonItemStyle.Plain, target: self, action: "showTimeline:")
+        self.navigationItem.rightBarButtonItems = [twitterButton, timelineButton]
+
         
         // View setup
         self.view = UIView(frame: CGRectMake(0, 0, self.view.frame.width, self.view.frame.height))
@@ -163,6 +166,11 @@ class TalkDetailViewController: UIViewController {
             alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
             self.presentViewController(alert, animated: true, completion: nil)
         }
+    }
+    
+    func showTimeline(sender : UIBarButtonItem) {
+        let vc = TwitterViewController()
+        self.navigationController?.showViewController(vc, sender: self)
     }
     
    

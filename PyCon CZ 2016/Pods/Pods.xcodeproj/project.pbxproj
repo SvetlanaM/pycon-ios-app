@@ -7,91 +7,140 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2133812BB6307FF0C557C49D74501E45 /* Pods-PyCon CZ 2016-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = E8944C302A31BDE206E66D93F2160AA8 /* Pods-PyCon CZ 2016-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2BE6521E302AD08B2D845F810ADCC745 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEC22C73C1608DFA5D5D78BDCB218219 /* Foundation.framework */; };
-		7276AE0D1AACCB97CE9003D8B0020605 /* Pods-PyCon CZ 2016-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = B78297C75D07B79FAA1A38B91AE114D8 /* Pods-PyCon CZ 2016-dummy.m */; };
+		0025C37B17ECBAC37DFE44C9B39AEB44 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90AAE8973B935FD4979EEDFB8B1E12AC /* Foundation.framework */; };
+		1C78F26426C1563BBDEBCE12E59F3AD5 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB0B5C34B0704CE42DB8ACE437DB6B71 /* QuartzCore.framework */; };
+		2AFE2D49F52C55EEAE7937056C495A11 /* SVProgressAnimatedView.h in Headers */ = {isa = PBXBuildFile; fileRef = 05B89050095FFC3E350ABD90D3D1DE34 /* SVProgressAnimatedView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3923168ACB058D5F8A4AD69F7C2F9CE8 /* SVIndefiniteAnimatedView.h in Headers */ = {isa = PBXBuildFile; fileRef = CAF0F11783D6A8BF605CC7AF40A00F39 /* SVIndefiniteAnimatedView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		45017D08929DC007DA782C9F42520E95 /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 4055BDF22C5EA506BCECCFFFD3DCB9D3 /* SVProgressHUD.bundle */; };
+		713D6F690F1117A75970C11D934ADEDB /* SVProgressAnimatedView.m in Sources */ = {isa = PBXBuildFile; fileRef = E26E3463A41BE92C0F2E79BAF41E3BBB /* SVProgressAnimatedView.m */; };
+		740598FE40362C018A73C786D1F82DE2 /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = EF436144248571FC793436F93E1D4C2E /* SVProgressHUD.m */; };
+		7B41C088A445F1D090F306B94C8731B6 /* SVProgressHUD-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 3440BE16F322BD845CBC4FEB6CC371A4 /* SVProgressHUD-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		84658298D3B79136364E431920D8524D /* SVIndefiniteAnimatedView.m in Sources */ = {isa = PBXBuildFile; fileRef = B4E54A6A7EBA3F9625EEBCC993919A5C /* SVIndefiniteAnimatedView.m */; };
+		863BC89458CBC98BD0DFBC4E02231BD2 /* Pods-PyCon CZ 2016-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = E8944C302A31BDE206E66D93F2160AA8 /* Pods-PyCon CZ 2016-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		96C561717B9B45C4D745F16A1440BA7D /* SVRadialGradientLayer.h in Headers */ = {isa = PBXBuildFile; fileRef = D52DB8BF4D06C57FDC0D6BE4FFA93870 /* SVRadialGradientLayer.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9E715534F59CEA14AB6CBBA5B67E4B6B /* SVRadialGradientLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B857B9028A71DB85939D985F1558EDC /* SVRadialGradientLayer.m */; };
+		B2D4B3B0A28C8DE0F9DC29947690F987 /* Pods-PyCon CZ 2016-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = B78297C75D07B79FAA1A38B91AE114D8 /* Pods-PyCon CZ 2016-dummy.m */; };
+		B7C670A194C7236F0451D08B7ED4E13E /* SVProgressHUD.h in Headers */ = {isa = PBXBuildFile; fileRef = 15FD7D26CF588683BBA033897DD3A85C /* SVProgressHUD.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D7D978FA37DAFA367941A49D212C2BC1 /* SVProgressHUD-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 92FA36E3DA445C9047F7AD7B412E558F /* SVProgressHUD-dummy.m */; };
+		FDA7B8B9D65019A1C73F1BF3CDBB4681 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90AAE8973B935FD4979EEDFB8B1E12AC /* Foundation.framework */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		B541EF381F5A43F1101067D5750C5618 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DCE1ADDE7FD0032BF92E4B911F861644;
+			remoteInfo = SVProgressHUD;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		05B89050095FFC3E350ABD90D3D1DE34 /* SVProgressAnimatedView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SVProgressAnimatedView.h; path = SVProgressHUD/SVProgressAnimatedView.h; sourceTree = "<group>"; };
+		1074DDA76270C3B2949E778CFE0A6C43 /* TwitterKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TwitterKit.framework; path = iOS/TwitterKit.framework; sourceTree = "<group>"; };
+		148B2415FB4ACDB1D26054C95EFAF3D3 /* TwitterCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TwitterCore.framework; path = iOS/TwitterCore.framework; sourceTree = "<group>"; };
+		15FD7D26CF588683BBA033897DD3A85C /* SVProgressHUD.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SVProgressHUD.h; path = SVProgressHUD/SVProgressHUD.h; sourceTree = "<group>"; };
+		22BEE35E88059BF054524B291A2F2856 /* Fabric.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Fabric.h; path = iOS/Fabric.framework/Headers/Fabric.h; sourceTree = "<group>"; };
 		240AA8573531AE21329D43B9DA48AEAC /* Pods-PyCon CZ 2016-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-PyCon CZ 2016-acknowledgements.plist"; sourceTree = "<group>"; };
-		2522F6BC37618D8C72E5620AD949E952 /* FirebaseDatabase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseDatabase.framework; path = Frameworks/FirebaseDatabase.framework; sourceTree = "<group>"; };
-		28486ADD971AB24B8A9AFD0718474541 /* FirebaseInstanceID.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseInstanceID.framework; path = Frameworks/frameworks/FirebaseInstanceID.framework; sourceTree = "<group>"; };
-		2E52D45E45D984F0BE21B17057E097A0 /* FIRInstanceID.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FIRInstanceID.h; path = Sources/FIRInstanceID.h; sourceTree = "<group>"; };
-		3E872049AC8C47334C487D052878DB52 /* Firebase.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Firebase.h; path = Analytics/Sources/Firebase.h; sourceTree = "<group>"; };
-		3F3BD77F3019150F5F54B374EF946A6E /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Fabric.framework; path = iOS/Fabric.framework; sourceTree = "<group>"; };
-		41B824A2FDA8C4362801DFB986DB1BBC /* Pods_PyCon_CZ_2016.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PyCon_CZ_2016.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3440BE16F322BD845CBC4FEB6CC371A4 /* SVProgressHUD-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SVProgressHUD-umbrella.h"; sourceTree = "<group>"; };
+		34FE5D64789B4456285DAECEFB9A5254 /* FirebaseAnalytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseAnalytics.framework; path = Frameworks/frameworks/FirebaseAnalytics.framework; sourceTree = "<group>"; };
+		4055BDF22C5EA506BCECCFFFD3DCB9D3 /* SVProgressHUD.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = SVProgressHUD.bundle; path = SVProgressHUD/SVProgressHUD.bundle; sourceTree = "<group>"; };
+		42674995197EF89FDD1834472F0F3F39 /* TwitterKitResources.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = TwitterKitResources.bundle; path = iOS/TwitterKit.framework/Versions/A/Resources/TwitterKitResources.bundle; sourceTree = "<group>"; };
+		47F91DFFFB740F53C1F3D7550314A573 /* FABAttributes.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FABAttributes.h; path = iOS/Fabric.framework/Headers/FABAttributes.h; sourceTree = "<group>"; };
+		49C89E39EA00963314B33CCF9D31D96C /* Pods_PyCon_CZ_2016.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PyCon_CZ_2016.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		59F17F6CA687CF004EEB02CF8ED9C294 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Fabric.framework; path = iOS/Fabric.framework; sourceTree = "<group>"; };
+		726C935C18CBAA486EBF4C2E742922E7 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		734049AC0D0FA0042D09AE7F93DA1AFC /* Pods-PyCon CZ 2016.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-PyCon CZ 2016.debug.xcconfig"; sourceTree = "<group>"; };
-		840B3F42A04CA64168559D96805E246A /* TwitterKitResources.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = TwitterKitResources.bundle; path = iOS/TwitterKit.framework/Versions/A/Resources/TwitterKitResources.bundle; sourceTree = "<group>"; };
+		7C69CE9A821A050A63ADAF93DB7A316D /* FirebaseInstanceID.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseInstanceID.framework; path = Frameworks/frameworks/FirebaseInstanceID.framework; sourceTree = "<group>"; };
+		7ED83CD0AD1475F3EA4E07C1F3756D1A /* FirebaseDatabase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseDatabase.framework; path = Frameworks/FirebaseDatabase.framework; sourceTree = "<group>"; };
+		8C318BC540F8A67258FB9980F1E7E5A6 /* GoogleSymbolUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleSymbolUtilities.framework; path = Frameworks/GoogleSymbolUtilities.framework; sourceTree = "<group>"; };
 		8D5AAA164A5CB32D5934BEFC28C18450 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8E0C886CEC578F4B0F22947A7F82F42E /* GoogleInterchangeUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleInterchangeUtilities.framework; path = Frameworks/GoogleInterchangeUtilities.framework; sourceTree = "<group>"; };
 		8E6B82471682B4492D52D1A4637AB774 /* Pods-PyCon CZ 2016-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-PyCon CZ 2016-resources.sh"; sourceTree = "<group>"; };
+		8E8700D90E5F01BEDE83B64DB0AF3DF1 /* SVProgressHUD.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = SVProgressHUD.modulemap; sourceTree = "<group>"; };
+		90AAE8973B935FD4979EEDFB8B1E12AC /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		92FA36E3DA445C9047F7AD7B412E558F /* SVProgressHUD-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SVProgressHUD-dummy.m"; sourceTree = "<group>"; };
 		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		949E8A75B1B3B1426C43FB8A82F617F1 /* TwitterCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TwitterCore.framework; path = iOS/TwitterCore.framework; sourceTree = "<group>"; };
-		950D341FC25297FAE6AAA0F3BC67735D /* FirebaseAnalytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseAnalytics.framework; path = Frameworks/frameworks/FirebaseAnalytics.framework; sourceTree = "<group>"; };
-		AC8FA8E7D8F6410385708381029BBD6A /* GoogleSymbolUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleSymbolUtilities.framework; path = Frameworks/GoogleSymbolUtilities.framework; sourceTree = "<group>"; };
-		B1131831BCA651914925D0728577B432 /* TwitterKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TwitterKit.framework; path = iOS/TwitterKit.framework; sourceTree = "<group>"; };
+		9B857B9028A71DB85939D985F1558EDC /* SVRadialGradientLayer.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SVRadialGradientLayer.m; path = SVProgressHUD/SVRadialGradientLayer.m; sourceTree = "<group>"; };
+		B413706D54D9FA6FB7B5785551ADF8B1 /* Firebase.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Firebase.h; path = Analytics/Sources/Firebase.h; sourceTree = "<group>"; };
+		B4E54A6A7EBA3F9625EEBCC993919A5C /* SVIndefiniteAnimatedView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SVIndefiniteAnimatedView.m; path = SVProgressHUD/SVIndefiniteAnimatedView.m; sourceTree = "<group>"; };
 		B78297C75D07B79FAA1A38B91AE114D8 /* Pods-PyCon CZ 2016-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-PyCon CZ 2016-dummy.m"; sourceTree = "<group>"; };
+		B95E484E8AA1E5D346328E45AB8B5E78 /* GoogleUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleUtilities.framework; path = Frameworks/GoogleUtilities.framework; sourceTree = "<group>"; };
+		BEF19AD90D580C3CC0991C90411482A3 /* FIRInstanceID.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FIRInstanceID.h; path = Sources/FIRInstanceID.h; sourceTree = "<group>"; };
 		C31443825B95E7E1494865DEACAF2793 /* Pods-PyCon CZ 2016-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-PyCon CZ 2016-frameworks.sh"; sourceTree = "<group>"; };
 		C5F57B4596213B1DE68B0B17D8C8DBE8 /* Pods-PyCon CZ 2016.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-PyCon CZ 2016.modulemap"; sourceTree = "<group>"; };
-		C789CE148E347F446FBB14E66FE9A603 /* FABAttributes.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FABAttributes.h; path = iOS/Fabric.framework/Headers/FABAttributes.h; sourceTree = "<group>"; };
-		CEC22C73C1608DFA5D5D78BDCB218219 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		DA6C4074954F709B248C1D0586E3E5A5 /* Fabric.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Fabric.h; path = iOS/Fabric.framework/Headers/Fabric.h; sourceTree = "<group>"; };
+		C79FD44482105C346E43807429692BAB /* SVProgressHUD-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SVProgressHUD-prefix.pch"; sourceTree = "<group>"; };
+		CAF0F11783D6A8BF605CC7AF40A00F39 /* SVIndefiniteAnimatedView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SVIndefiniteAnimatedView.h; path = SVProgressHUD/SVIndefiniteAnimatedView.h; sourceTree = "<group>"; };
+		CBCEA0E9249BF42E5CAE34AF2E3DD370 /* SVProgressHUD.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SVProgressHUD.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CF762C27D43DA40B645E9A8AE3AA5B1D /* SVProgressHUD.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SVProgressHUD.xcconfig; sourceTree = "<group>"; };
+		D52DB8BF4D06C57FDC0D6BE4FFA93870 /* SVRadialGradientLayer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SVRadialGradientLayer.h; path = SVProgressHUD/SVRadialGradientLayer.h; sourceTree = "<group>"; };
 		DBD56A0952AEC2E25EB39128CF1EC15F /* Pods-PyCon CZ 2016-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-PyCon CZ 2016-acknowledgements.markdown"; sourceTree = "<group>"; };
-		DCB582A707A29B9E85FE63104555EA27 /* GoogleInterchangeUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleInterchangeUtilities.framework; path = Frameworks/GoogleInterchangeUtilities.framework; sourceTree = "<group>"; };
+		E26E3463A41BE92C0F2E79BAF41E3BBB /* SVProgressAnimatedView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SVProgressAnimatedView.m; path = SVProgressHUD/SVProgressAnimatedView.m; sourceTree = "<group>"; };
 		E8944C302A31BDE206E66D93F2160AA8 /* Pods-PyCon CZ 2016-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-PyCon CZ 2016-umbrella.h"; sourceTree = "<group>"; };
+		EB0B5C34B0704CE42DB8ACE437DB6B71 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/QuartzCore.framework; sourceTree = DEVELOPER_DIR; };
+		EF436144248571FC793436F93E1D4C2E /* SVProgressHUD.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SVProgressHUD.m; path = SVProgressHUD/SVProgressHUD.m; sourceTree = "<group>"; };
 		EFD5A5BE29CE4B52F8007081ABF1A42F /* Pods-PyCon CZ 2016.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-PyCon CZ 2016.release.xcconfig"; sourceTree = "<group>"; };
-		FA63DEEFE1DEA04F327ED1E2F561857F /* GoogleUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleUtilities.framework; path = Frameworks/GoogleUtilities.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		496FB34BA422657D0A37B2C1307CBA42 /* Frameworks */ = {
+		64BEA9C084C40A83B2D30D42A2A751FE /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2BE6521E302AD08B2D845F810ADCC745 /* Foundation.framework in Frameworks */,
+				FDA7B8B9D65019A1C73F1BF3CDBB4681 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		953722F323E99E2EAB085708DDFB1DAD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0025C37B17ECBAC37DFE44C9B39AEB44 /* Foundation.framework in Frameworks */,
+				1C78F26426C1563BBDEBCE12E59F3AD5 /* QuartzCore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		158DD98CD53813BDA093CFD69BF75F18 /* FirebaseDatabase */ = {
+		13552E9CD68ABAE5D5734DD463B82B70 /* TwitterCore */ = {
 			isa = PBXGroup;
 			children = (
-				9EA72105E8B5D59985DB32C4F134BE29 /* Frameworks */,
+				D11932BB9F44B916C7B4F33F541FA707 /* Frameworks */,
 			);
-			path = FirebaseDatabase;
+			path = TwitterCore;
 			sourceTree = "<group>";
 		};
-		1DB897A828E13FA5D3C4ABA0B618A25A /* FirebaseAnalytics */ = {
+		29AA78AC37A2D80FC9DB2FE0C7F38C82 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				5175E96BBA206D57F3F5D9A08055FAEC /* Frameworks */,
-			);
-			path = FirebaseAnalytics;
-			sourceTree = "<group>";
-		};
-		31DF0757A3701142B42242B622DE8118 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				DCB582A707A29B9E85FE63104555EA27 /* GoogleInterchangeUtilities.framework */,
+				8E0C886CEC578F4B0F22947A7F82F42E /* GoogleInterchangeUtilities.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		3DCAB2B7CDE207B3958B6CB957FCC758 /* iOS */ = {
+		2D225EBA16EE389306494514564BA8C8 /* GoogleUtilities */ = {
 			isa = PBXGroup;
 			children = (
-				CEC22C73C1608DFA5D5D78BDCB218219 /* Foundation.framework */,
+				EF0D7BF5036408053C27BEF21CAB0506 /* Frameworks */,
 			);
-			name = iOS;
+			path = GoogleUtilities;
 			sourceTree = "<group>";
 		};
-		3F64F79C867FABFF47FFA01BAAB33520 /* GoogleInterchangeUtilities */ = {
+		37095E1FA81FA87C45DDBF631F033CB6 /* FirebaseDatabase */ = {
 			isa = PBXGroup;
 			children = (
-				31DF0757A3701142B42242B622DE8118 /* Frameworks */,
+				8D0B94A66E3A7C93205B93F07633EF21 /* Frameworks */,
 			);
-			path = GoogleInterchangeUtilities;
+			path = FirebaseDatabase;
+			sourceTree = "<group>";
+		};
+		3DD76878DB5BA7A0D1D91A56A29282F2 /* GoogleSymbolUtilities */ = {
+			isa = PBXGroup;
+			children = (
+				AC9AB7E87F1D5728EC4B977F083A5182 /* Frameworks */,
+			);
+			path = GoogleSymbolUtilities;
 			sourceTree = "<group>";
 		};
 		426B47CDC905634DE40B29095D10B688 /* Pods-PyCon CZ 2016 */ = {
@@ -112,114 +161,132 @@
 			path = "Target Support Files/Pods-PyCon CZ 2016";
 			sourceTree = "<group>";
 		};
-		4B0789C101291FB544AB527AADE9FB1A /* Frameworks */ = {
+		433CD3331B6C3787F473C941B61FC68F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				949E8A75B1B3B1426C43FB8A82F617F1 /* TwitterCore.framework */,
+				89F803C7E2D77E11F2120CB28FE0B795 /* iOS */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		5175E96BBA206D57F3F5D9A08055FAEC /* Frameworks */ = {
+		519DE6042FD569F4EB2E1C1E0A407574 /* TwitterKit */ = {
 			isa = PBXGroup;
 			children = (
-				950D341FC25297FAE6AAA0F3BC67735D /* FirebaseAnalytics.framework */,
+				950F2039A5CB87493935149B57144814 /* Frameworks */,
+				CB03FC5F3CFFDE2AC1390FD463C3F2CF /* Resources */,
 			);
-			name = Frameworks;
+			path = TwitterKit;
 			sourceTree = "<group>";
 		};
-		5F36ACCFF8AF30B2B9043D9A275A5B26 /* Fabric */ = {
+		5F7851CFEE39B14A2A382958989EB010 /* FirebaseInstanceID */ = {
 			isa = PBXGroup;
 			children = (
-				C789CE148E347F446FBB14E66FE9A603 /* FABAttributes.h */,
-				DA6C4074954F709B248C1D0586E3E5A5 /* Fabric.h */,
-				6E63425C2702E0F8FD2816D67DBC0296 /* Frameworks */,
+				BEF19AD90D580C3CC0991C90411482A3 /* FIRInstanceID.h */,
+				A4C527FC104D273DBDF182FBF5EA1941 /* Frameworks */,
 			);
-			path = Fabric;
+			path = FirebaseInstanceID;
 			sourceTree = "<group>";
 		};
-		64190A7CC13BAF020F857B9D4D9F9BC2 /* TwitterCore */ = {
+		61749BB933F87E162C71358EBECE3F7F /* FirebaseAnalytics */ = {
 			isa = PBXGroup;
 			children = (
-				4B0789C101291FB544AB527AADE9FB1A /* Frameworks */,
+				C6257B33E0DB4EC5783CF71546F42030 /* Frameworks */,
 			);
-			path = TwitterCore;
-			sourceTree = "<group>";
-		};
-		6663C9CDF1257D95FFC065EBBEF56F3B /* Analytics */ = {
-			isa = PBXGroup;
-			children = (
-				3E872049AC8C47334C487D052878DB52 /* Firebase.h */,
-			);
-			name = Analytics;
-			sourceTree = "<group>";
-		};
-		6B22DF83C3B0014C2D9AFCFDC78EBE3A /* GoogleSymbolUtilities */ = {
-			isa = PBXGroup;
-			children = (
-				9B9CCED41DEBB327DBCED290476D8C91 /* Frameworks */,
-			);
-			path = GoogleSymbolUtilities;
-			sourceTree = "<group>";
-		};
-		6E63425C2702E0F8FD2816D67DBC0296 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				3F3BD77F3019150F5F54B374EF946A6E /* Fabric.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		7436F18CA46A001D88382AF8A68090D1 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				28486ADD971AB24B8A9AFD0718474541 /* FirebaseInstanceID.framework */,
-			);
-			name = Frameworks;
+			path = FirebaseAnalytics;
 			sourceTree = "<group>";
 		};
 		7DB346D0F39D3F0E887471402A8071AB = {
 			isa = PBXGroup;
 			children = (
 				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
-				BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */,
-				EA648B15628D73212671E9EDE3E75174 /* Pods */,
-				B0FC572E2D74DB2AA072F7CD71615EC1 /* Products */,
+				433CD3331B6C3787F473C941B61FC68F /* Frameworks */,
+				7E5FF320161A179791046DC77F9554E6 /* Pods */,
+				F1A68583745513398AC2B20F5A23598C /* Products */,
 				A9CE4D394AAB25230972863DFCD95E71 /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
 		};
-		869DB161F6557F5E921E9946C1280A09 /* FirebaseInstanceID */ = {
+		7E5FF320161A179791046DC77F9554E6 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				2E52D45E45D984F0BE21B17057E097A0 /* FIRInstanceID.h */,
-				7436F18CA46A001D88382AF8A68090D1 /* Frameworks */,
+				A4A7750B9E3EDA0F1BB46EAAFEC64847 /* Fabric */,
+				C7C120AB07D3832D29FAF87362DB5429 /* Firebase */,
+				61749BB933F87E162C71358EBECE3F7F /* FirebaseAnalytics */,
+				37095E1FA81FA87C45DDBF631F033CB6 /* FirebaseDatabase */,
+				5F7851CFEE39B14A2A382958989EB010 /* FirebaseInstanceID */,
+				A70B8F5BA1AF302FB3AFE2ACD37A1A30 /* GoogleInterchangeUtilities */,
+				3DD76878DB5BA7A0D1D91A56A29282F2 /* GoogleSymbolUtilities */,
+				2D225EBA16EE389306494514564BA8C8 /* GoogleUtilities */,
+				CA81835487CE1DB6454518C4C32B0996 /* SVProgressHUD */,
+				13552E9CD68ABAE5D5734DD463B82B70 /* TwitterCore */,
+				519DE6042FD569F4EB2E1C1E0A407574 /* TwitterKit */,
 			);
-			path = FirebaseInstanceID;
+			name = Pods;
 			sourceTree = "<group>";
 		};
-		903A35A230A3257630B2A97BC247A52B /* Firebase */ = {
+		89F803C7E2D77E11F2120CB28FE0B795 /* iOS */ = {
 			isa = PBXGroup;
 			children = (
-				6663C9CDF1257D95FFC065EBBEF56F3B /* Analytics */,
+				90AAE8973B935FD4979EEDFB8B1E12AC /* Foundation.framework */,
+				EB0B5C34B0704CE42DB8ACE437DB6B71 /* QuartzCore.framework */,
 			);
-			path = Firebase;
+			name = iOS;
 			sourceTree = "<group>";
 		};
-		9B9CCED41DEBB327DBCED290476D8C91 /* Frameworks */ = {
+		8D0B94A66E3A7C93205B93F07633EF21 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				AC8FA8E7D8F6410385708381029BBD6A /* GoogleSymbolUtilities.framework */,
+				7ED83CD0AD1475F3EA4E07C1F3756D1A /* FirebaseDatabase.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		9EA72105E8B5D59985DB32C4F134BE29 /* Frameworks */ = {
+		950F2039A5CB87493935149B57144814 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				2522F6BC37618D8C72E5620AD949E952 /* FirebaseDatabase.framework */,
+				1074DDA76270C3B2949E778CFE0A6C43 /* TwitterKit.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		95D057FA31EAABB411DB15B576C90812 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				726C935C18CBAA486EBF4C2E742922E7 /* Info.plist */,
+				8E8700D90E5F01BEDE83B64DB0AF3DF1 /* SVProgressHUD.modulemap */,
+				CF762C27D43DA40B645E9A8AE3AA5B1D /* SVProgressHUD.xcconfig */,
+				92FA36E3DA445C9047F7AD7B412E558F /* SVProgressHUD-dummy.m */,
+				C79FD44482105C346E43807429692BAB /* SVProgressHUD-prefix.pch */,
+				3440BE16F322BD845CBC4FEB6CC371A4 /* SVProgressHUD-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/SVProgressHUD";
+			sourceTree = "<group>";
+		};
+		A4A7750B9E3EDA0F1BB46EAAFEC64847 /* Fabric */ = {
+			isa = PBXGroup;
+			children = (
+				47F91DFFFB740F53C1F3D7550314A573 /* FABAttributes.h */,
+				22BEE35E88059BF054524B291A2F2856 /* Fabric.h */,
+				F1DBE3F74D189B6C816FAC3AA05EAA5B /* Frameworks */,
+			);
+			path = Fabric;
+			sourceTree = "<group>";
+		};
+		A4C527FC104D273DBDF182FBF5EA1941 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7C69CE9A821A050A63ADAF93DB7A316D /* FirebaseInstanceID.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A70B8F5BA1AF302FB3AFE2ACD37A1A30 /* GoogleInterchangeUtilities */ = {
+			isa = PBXGroup;
+			children = (
+				29AA78AC37A2D80FC9DB2FE0C7F38C82 /* Frameworks */,
+			);
+			path = GoogleInterchangeUtilities;
 			sourceTree = "<group>";
 		};
 		A9CE4D394AAB25230972863DFCD95E71 /* Targets Support Files */ = {
@@ -230,109 +297,164 @@
 			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
-		AE864E6A25915D3DCB6BC20B450C20BE /* Frameworks */ = {
+		AC9AB7E87F1D5728EC4B977F083A5182 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				B1131831BCA651914925D0728577B432 /* TwitterKit.framework */,
+				8C318BC540F8A67258FB9980F1E7E5A6 /* GoogleSymbolUtilities.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		B0FC572E2D74DB2AA072F7CD71615EC1 /* Products */ = {
+		C6257B33E0DB4EC5783CF71546F42030 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				41B824A2FDA8C4362801DFB986DB1BBC /* Pods_PyCon_CZ_2016.framework */,
+				34FE5D64789B4456285DAECEFB9A5254 /* FirebaseAnalytics.framework */,
 			);
-			name = Products;
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		BAAC21307748F74CDCE190B5D4B65ED5 /* Resources */ = {
+		C7C120AB07D3832D29FAF87362DB5429 /* Firebase */ = {
 			isa = PBXGroup;
 			children = (
-				840B3F42A04CA64168559D96805E246A /* TwitterKitResources.bundle */,
+				F9E45CDE13526F54FEF5DCAAB3329199 /* Analytics */,
+			);
+			path = Firebase;
+			sourceTree = "<group>";
+		};
+		CA81835487CE1DB6454518C4C32B0996 /* SVProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				CAF0F11783D6A8BF605CC7AF40A00F39 /* SVIndefiniteAnimatedView.h */,
+				B4E54A6A7EBA3F9625EEBCC993919A5C /* SVIndefiniteAnimatedView.m */,
+				05B89050095FFC3E350ABD90D3D1DE34 /* SVProgressAnimatedView.h */,
+				E26E3463A41BE92C0F2E79BAF41E3BBB /* SVProgressAnimatedView.m */,
+				15FD7D26CF588683BBA033897DD3A85C /* SVProgressHUD.h */,
+				EF436144248571FC793436F93E1D4C2E /* SVProgressHUD.m */,
+				D52DB8BF4D06C57FDC0D6BE4FFA93870 /* SVRadialGradientLayer.h */,
+				9B857B9028A71DB85939D985F1558EDC /* SVRadialGradientLayer.m */,
+				FE7350F723D81DB21F553C349C5725A8 /* Resources */,
+				95D057FA31EAABB411DB15B576C90812 /* Support Files */,
+			);
+			path = SVProgressHUD;
+			sourceTree = "<group>";
+		};
+		CB03FC5F3CFFDE2AC1390FD463C3F2CF /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				42674995197EF89FDD1834472F0F3F39 /* TwitterKitResources.bundle */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
 		};
-		BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */ = {
+		D11932BB9F44B916C7B4F33F541FA707 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				3DCAB2B7CDE207B3958B6CB957FCC758 /* iOS */,
+				148B2415FB4ACDB1D26054C95EFAF3D3 /* TwitterCore.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		C6F95B1CE6D1BE35F72B5785AF32A063 /* GoogleUtilities */ = {
+		EF0D7BF5036408053C27BEF21CAB0506 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				DEA4B4C79711FD464E8342F16044DB43 /* Frameworks */,
-			);
-			path = GoogleUtilities;
-			sourceTree = "<group>";
-		};
-		D6C54D96E10CD5C0B8CF823AD77E2966 /* TwitterKit */ = {
-			isa = PBXGroup;
-			children = (
-				AE864E6A25915D3DCB6BC20B450C20BE /* Frameworks */,
-				BAAC21307748F74CDCE190B5D4B65ED5 /* Resources */,
-			);
-			path = TwitterKit;
-			sourceTree = "<group>";
-		};
-		DEA4B4C79711FD464E8342F16044DB43 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				FA63DEEFE1DEA04F327ED1E2F561857F /* GoogleUtilities.framework */,
+				B95E484E8AA1E5D346328E45AB8B5E78 /* GoogleUtilities.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		EA648B15628D73212671E9EDE3E75174 /* Pods */ = {
+		F1A68583745513398AC2B20F5A23598C /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				5F36ACCFF8AF30B2B9043D9A275A5B26 /* Fabric */,
-				903A35A230A3257630B2A97BC247A52B /* Firebase */,
-				1DB897A828E13FA5D3C4ABA0B618A25A /* FirebaseAnalytics */,
-				158DD98CD53813BDA093CFD69BF75F18 /* FirebaseDatabase */,
-				869DB161F6557F5E921E9946C1280A09 /* FirebaseInstanceID */,
-				3F64F79C867FABFF47FFA01BAAB33520 /* GoogleInterchangeUtilities */,
-				6B22DF83C3B0014C2D9AFCFDC78EBE3A /* GoogleSymbolUtilities */,
-				C6F95B1CE6D1BE35F72B5785AF32A063 /* GoogleUtilities */,
-				64190A7CC13BAF020F857B9D4D9F9BC2 /* TwitterCore */,
-				D6C54D96E10CD5C0B8CF823AD77E2966 /* TwitterKit */,
+				49C89E39EA00963314B33CCF9D31D96C /* Pods_PyCon_CZ_2016.framework */,
+				CBCEA0E9249BF42E5CAE34AF2E3DD370 /* SVProgressHUD.framework */,
 			);
-			name = Pods;
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F1DBE3F74D189B6C816FAC3AA05EAA5B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				59F17F6CA687CF004EEB02CF8ED9C294 /* Fabric.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F9E45CDE13526F54FEF5DCAAB3329199 /* Analytics */ = {
+			isa = PBXGroup;
+			children = (
+				B413706D54D9FA6FB7B5785551ADF8B1 /* Firebase.h */,
+			);
+			name = Analytics;
+			sourceTree = "<group>";
+		};
+		FE7350F723D81DB21F553C349C5725A8 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				4055BDF22C5EA506BCECCFFFD3DCB9D3 /* SVProgressHUD.bundle */,
+			);
+			name = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		B6C604C6DEA8EE41C0B76B9F1B61AE6D /* Headers */ = {
+		A087ADEAB588FCC7F57278602EE13ED2 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2133812BB6307FF0C557C49D74501E45 /* Pods-PyCon CZ 2016-umbrella.h in Headers */,
+				3923168ACB058D5F8A4AD69F7C2F9CE8 /* SVIndefiniteAnimatedView.h in Headers */,
+				2AFE2D49F52C55EEAE7937056C495A11 /* SVProgressAnimatedView.h in Headers */,
+				7B41C088A445F1D090F306B94C8731B6 /* SVProgressHUD-umbrella.h in Headers */,
+				B7C670A194C7236F0451D08B7ED4E13E /* SVProgressHUD.h in Headers */,
+				96C561717B9B45C4D745F16A1440BA7D /* SVRadialGradientLayer.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AC29FD5CEE6159ABA0EE470457353106 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				863BC89458CBC98BD0DFBC4E02231BD2 /* Pods-PyCon CZ 2016-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		2C7C5552C38740DD3A1B5773476C1132 /* Pods-PyCon CZ 2016 */ = {
+		DA1035B18F075EC36B11ABD3EB82B901 /* Pods-PyCon CZ 2016 */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 95AECD849B6EBE910751DEDB1546E682 /* Build configuration list for PBXNativeTarget "Pods-PyCon CZ 2016" */;
+			buildConfigurationList = 4599163E31DB32F7B38E06DB959E7A86 /* Build configuration list for PBXNativeTarget "Pods-PyCon CZ 2016" */;
 			buildPhases = (
-				AEB2FC31EBE77B810B26344E380C4500 /* Sources */,
-				496FB34BA422657D0A37B2C1307CBA42 /* Frameworks */,
-				B6C604C6DEA8EE41C0B76B9F1B61AE6D /* Headers */,
+				03EE85FD18D0131F4502475BD7ACE823 /* Sources */,
+				64BEA9C084C40A83B2D30D42A2A751FE /* Frameworks */,
+				AC29FD5CEE6159ABA0EE470457353106 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DB78545C8FA57E1D1DE0078A9EB6BB0D /* PBXTargetDependency */,
+			);
+			name = "Pods-PyCon CZ 2016";
+			productName = "Pods-PyCon CZ 2016";
+			productReference = 49C89E39EA00963314B33CCF9D31D96C /* Pods_PyCon_CZ_2016.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		DCE1ADDE7FD0032BF92E4B911F861644 /* SVProgressHUD */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FC78CA0831D276B07960854BA2E44987 /* Build configuration list for PBXNativeTarget "SVProgressHUD" */;
+			buildPhases = (
+				1FD8075BEDEA7AFB062E11CBC6A27E39 /* Sources */,
+				953722F323E99E2EAB085708DDFB1DAD /* Frameworks */,
+				A087ADEAB588FCC7F57278602EE13ED2 /* Headers */,
+				FB2E6825AB63D0596BD6F8D09121DCF5 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = "Pods-PyCon CZ 2016";
-			productName = "Pods-PyCon CZ 2016";
-			productReference = 41B824A2FDA8C4362801DFB986DB1BBC /* Pods_PyCon_CZ_2016.framework */;
+			name = SVProgressHUD;
+			productName = SVProgressHUD;
+			productReference = CBCEA0E9249BF42E5CAE34AF2E3DD370 /* SVProgressHUD.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -352,27 +474,93 @@
 				en,
 			);
 			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
-			productRefGroup = B0FC572E2D74DB2AA072F7CD71615EC1 /* Products */;
+			productRefGroup = F1A68583745513398AC2B20F5A23598C /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				2C7C5552C38740DD3A1B5773476C1132 /* Pods-PyCon CZ 2016 */,
+				DA1035B18F075EC36B11ABD3EB82B901 /* Pods-PyCon CZ 2016 */,
+				DCE1ADDE7FD0032BF92E4B911F861644 /* SVProgressHUD */,
 			);
 		};
 /* End PBXProject section */
 
+/* Begin PBXResourcesBuildPhase section */
+		FB2E6825AB63D0596BD6F8D09121DCF5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				45017D08929DC007DA782C9F42520E95 /* SVProgressHUD.bundle in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
-		AEB2FC31EBE77B810B26344E380C4500 /* Sources */ = {
+		03EE85FD18D0131F4502475BD7ACE823 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7276AE0D1AACCB97CE9003D8B0020605 /* Pods-PyCon CZ 2016-dummy.m in Sources */,
+				B2D4B3B0A28C8DE0F9DC29947690F987 /* Pods-PyCon CZ 2016-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1FD8075BEDEA7AFB062E11CBC6A27E39 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				84658298D3B79136364E431920D8524D /* SVIndefiniteAnimatedView.m in Sources */,
+				713D6F690F1117A75970C11D934ADEDB /* SVProgressAnimatedView.m in Sources */,
+				D7D978FA37DAFA367941A49D212C2BC1 /* SVProgressHUD-dummy.m in Sources */,
+				740598FE40362C018A73C786D1F82DE2 /* SVProgressHUD.m in Sources */,
+				9E715534F59CEA14AB6CBBA5B67E4B6B /* SVRadialGradientLayer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		DB78545C8FA57E1D1DE0078A9EB6BB0D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = SVProgressHUD;
+			target = DCE1ADDE7FD0032BF92E4B911F861644 /* SVProgressHUD */;
+			targetProxy = B541EF381F5A43F1101067D5750C5618 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
+		1EF53FD0542D0EA16FA0CE25217A0826 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = EFD5A5BE29CE4B52F8007081ABF1A42F /* Pods-PyCon CZ 2016.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-PyCon CZ 2016/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-PyCon CZ 2016/Pods-PyCon CZ 2016.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_PyCon_CZ_2016;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 		3FA451D268613890FA8A5A03801E11D5 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -453,7 +641,7 @@
 			};
 			name = Debug;
 		};
-		6ED57714ABBB3F44435E3181E03C020F /* Debug */ = {
+		9FE7CB106DA8B795592899CBFB0A21E4 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 734049AC0D0FA0042D09AE7F93DA1AFC /* Pods-PyCon CZ 2016.debug.xcconfig */;
 			buildSettings = {
@@ -486,9 +674,9 @@
 			};
 			name = Debug;
 		};
-		EC0BF5ECFA56AA0BF7D4617BB9579F3F /* Release */ = {
+		DB7FEE509B3DA967CA3C71860B97CD50 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = EFD5A5BE29CE4B52F8007081ABF1A42F /* Pods-PyCon CZ 2016.release.xcconfig */;
+			baseConfigurationReference = CF762C27D43DA40B645E9A8AE3AA5B1D /* SVProgressHUD.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
@@ -499,18 +687,14 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "Target Support Files/Pods-PyCon CZ 2016/Info.plist";
+				GCC_PREFIX_HEADER = "Target Support Files/SVProgressHUD/SVProgressHUD-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/SVProgressHUD/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-PyCon CZ 2016/Pods-PyCon CZ 2016.modulemap";
+				MODULEMAP_FILE = "Target Support Files/SVProgressHUD/SVProgressHUD.modulemap";
 				MTL_ENABLE_DEBUG_INFO = NO;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = Pods_PyCon_CZ_2016;
+				PRODUCT_NAME = SVProgressHUD;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -518,6 +702,35 @@
 				VERSION_INFO_PREFIX = "";
 			};
 			name = Release;
+		};
+		F27AF32D6414BC8880C8154B5D09E9BB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CF762C27D43DA40B645E9A8AE3AA5B1D /* SVProgressHUD.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/SVProgressHUD/SVProgressHUD-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/SVProgressHUD/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/SVProgressHUD/SVProgressHUD.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = SVProgressHUD;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
 		};
 /* End XCBuildConfiguration section */
 
@@ -531,11 +744,20 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		95AECD849B6EBE910751DEDB1546E682 /* Build configuration list for PBXNativeTarget "Pods-PyCon CZ 2016" */ = {
+		4599163E31DB32F7B38E06DB959E7A86 /* Build configuration list for PBXNativeTarget "Pods-PyCon CZ 2016" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				6ED57714ABBB3F44435E3181E03C020F /* Debug */,
-				EC0BF5ECFA56AA0BF7D4617BB9579F3F /* Release */,
+				9FE7CB106DA8B795592899CBFB0A21E4 /* Debug */,
+				1EF53FD0542D0EA16FA0CE25217A0826 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FC78CA0831D276B07960854BA2E44987 /* Build configuration list for PBXNativeTarget "SVProgressHUD" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F27AF32D6414BC8880C8154B5D09E9BB /* Debug */,
+				DB7FEE509B3DA967CA3C71860B97CD50 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

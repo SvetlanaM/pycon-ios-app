@@ -11,5 +11,5 @@ target 'PyCon CZ 2016' do
   pod 'Fabric'
   pod 'TwitterKit'
   pod 'TwitterCore'
-	
+  pod 'SVProgressHUD'
 end
