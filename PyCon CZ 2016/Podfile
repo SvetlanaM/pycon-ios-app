@@ -8,5 +8,8 @@ target 'PyCon CZ 2016' do
   # Pods for PyCon CZ 2016
   pod 'Firebase/Database'
   pod 'Firebase/Core'
+  pod 'Fabric'
+  pod 'TwitterKit'
+  pod 'TwitterCore'
 	
 end

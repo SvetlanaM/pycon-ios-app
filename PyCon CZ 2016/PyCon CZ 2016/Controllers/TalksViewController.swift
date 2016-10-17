@@ -13,16 +13,21 @@ import Social
 class TalksViewController: UIViewController, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
     
     var ref : FIRDatabaseReference!
+    
     var talks = [Talk]()
     var collection : UICollectionView?
 
     @IBOutlet weak var segmentControl: UISegmentedControl!
     override func viewDidLoad() {
+        
         super.viewDidLoad()
+        
         
         ref = FIRDatabase.database().reference().child("d105")
         checkDate("d105")
+        ref.keepSynced(true)
         startObservingDB()
+        
         
         // Layout setup
         let layout = UICollectionViewFlowLayout()
@@ -43,7 +48,9 @@ class TalksViewController: UIViewController, UICollectionViewDelegateFlowLayout,
     @IBAction func shareOnTwitter(sender: UIBarButtonItem) {
         if SLComposeViewController.isAvailableForServiceType(SLServiceTypeTwitter){
             let twitterSheet:SLComposeViewController = SLComposeViewController(forServiceType: SLServiceTypeTwitter)
-            twitterSheet.setInitialText("@pyconcz")
+            twitterSheet.setInitialText("#pyconcz")
+            
+            
             self.presentViewController(twitterSheet, animated: true, completion: nil)
         } else {
             let alert = UIAlertController(title: "Accounts", message: "Please login to a Twitter account to share.", preferredStyle: UIAlertControllerStyle.Alert)
@@ -55,22 +62,27 @@ class TalksViewController: UIViewController, UICollectionViewDelegateFlowLayout,
     @IBAction func changeRoom(sender: AnyObject) {
         if (segmentControl.selectedSegmentIndex == 0) {
             ref = FIRDatabase.database().reference().child("d105")
+            ref.keepSynced(true)
             checkDate("d105")
             startObservingDB()
         } else if (segmentControl.selectedSegmentIndex == 1) {
             ref = FIRDatabase.database().reference().child("d0206")
+            ref.keepSynced(true)
             checkDate("d0206")
             startObservingDB()
         } else if (segmentControl.selectedSegmentIndex == 2) {
             ref = FIRDatabase.database().reference().child("d0207")
+            ref.keepSynced(true)
             checkDate("d0207")
             startObservingDB()
         } else if (segmentControl.selectedSegmentIndex == 3) {
             ref = FIRDatabase.database().reference().child("a112")
+            ref.keepSynced(true)
             checkDate("a112")
             startObservingDB()
         } else if (segmentControl.selectedSegmentIndex == 4) {
             ref = FIRDatabase.database().reference().child("a113")
+            ref.keepSynced(true)
             checkDate("a113")
             startObservingDB()
         }

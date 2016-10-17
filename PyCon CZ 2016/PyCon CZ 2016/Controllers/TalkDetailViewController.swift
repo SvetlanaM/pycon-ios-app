@@ -7,6 +7,7 @@
 //
 import Social
 import UIKit
+import FirebaseDatabase
 
 class TalkDetailViewController: UIViewController {
 
@@ -21,9 +22,11 @@ class TalkDetailViewController: UIViewController {
     var talkDescLabel : UILabel!
     var showDetailLabel : UILabel!
     var talk : Talk?
+    var speakerImage : UIImageView?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         
         navigationItem.title = talk?.title
         navigationController!.navigationBar.tintColor = UIColor.whiteColor()
@@ -61,37 +64,38 @@ class TalkDetailViewController: UIViewController {
         
         
         // Date setup
-        let dateFrame = CGRectMake(0, 10, 80, 100)
-        date = UILabel(frame: dateFrame)
-        date.font = UIFont.boldSystemFontOfSize(18.0)
-        date.textColor = .blackColor()
-        date.backgroundColor = .whiteColor()
-        date.textAlignment = .Center
-        date.numberOfLines = 3
-        let border = CALayer()
-        border.backgroundColor = UIColor(red: 205/255.0, green: 209/255.0, blue: 213/255.0, alpha: 1.0).CGColor
-        border.frame = CGRect(x: 75, y: 0, width: 0.5, height: dateFrame.height)
-        date.layer.addSublayer(border)
-        date.lineBreakMode = .ByWordWrapping
-        textView!.addSubview(date)
+        
+        let urlString = talk?.avatar
+        let url = NSURL(string: urlString!)
+        let data = NSData(contentsOfURL: url!)
+        let imageData = UIImage(data: data!)
+        speakerImage = UIImageView(image: imageData)
+        let imageFrame = CGRectMake(18, 35, 65, 65)
+        speakerImage?.frame = imageFrame
+        speakerImage?.layer.cornerRadius = (speakerImage?.frame.height)!/2
+        speakerImage?.clipsToBounds = true
+        speakerImage?.contentMode = UIViewContentMode.ScaleAspectFill
+        
+        
+        textView!.addSubview(speakerImage!)
         
         // Title setup
-        let titleFrame = CGRectMake(90, -50, (self.textView!.frame.width)-100, 200)
+        let titleFrame = CGRectMake(90, -40, (self.textView!.frame.width)-100, 200)
         talkTitle = UILabel(frame: titleFrame)
         talkTitle.textColor = .blackColor()
         talkTitle.textAlignment = .Left
-        talkTitle.numberOfLines = 4
+        talkTitle.numberOfLines = 2
         textView!.addSubview(talkTitle)
         
         // Speaker name setup
-        let speakerFrame = CGRectMake(90, -8, (self.textView!.frame.width)-100, 200)
+        let speakerFrame = CGRectMake(90, -10, (self.textView!.frame.width)-100, 200)
         speakerLabel = UILabel(frame: speakerFrame)
         speakerLabel.font = UIFont.systemFontOfSize(14.0)
-        speakerLabel.textColor = UIColor(red: 205/255.0, green: 209/255.0, blue: 213/255.0, alpha: 1.0)
+        speakerLabel.textColor = UIColor(red: 153/255.0, green: 154/255.0, blue: 230/255.0, alpha: 1.0)
         speakerLabel.textAlignment = .Left
         speakerLabel.numberOfLines = 2
         speakerLabel.lineBreakMode = .ByWordWrapping
-        textView!.addSubview(speakerLabel)
+        talkTitle.addSubview(speakerLabel)
         
         // Description setup
         let showDetailFrame = CGRectMake(self.textView!.frame.width-90, -8, (self.textView!.frame.width)-100, 200)
@@ -104,29 +108,37 @@ class TalkDetailViewController: UIViewController {
         self.textView!.addSubview(showDetailLabel)
         
         // Theme setup
-        var talkDescFrame = heightForView((talk?.talkDescription!)!)
+        let talkDescFrame = heightForView((talk?.talkDescription!)!)
         talkDescLabel = UILabel(frame: talkDescFrame)
         talkDescLabel.font = UIFont.systemFontOfSize(16.0)
         talkDescLabel.textColor = UIColor.blackColor()
         talkDescLabel.textAlignment = .Left
         talkDescLabel.numberOfLines = 0
         talkDescLabel.lineBreakMode = .ByWordWrapping
+        
+        let border = CALayer()
+        border.backgroundColor = UIColor(red: 205/255.0, green: 209/255.0, blue: 213/255.0, alpha: 1.0).CGColor
+        border.frame = CGRect(x: 5, y: -15, width: talkDescFrame.width-15, height: 0.5)
+        
+        talkDescLabel.layer.addSublayer(border)
+
+        
         textView!.addSubview(talkDescLabel)
         
         let scrollView = UIScrollView(frame: CGRectMake(0, 0, self.view!.frame.width-60, self.textView!.frame.height))
+        scrollView.addSubview(speakerImage!)
         scrollView.addSubview(self.talkDescLabel)
         scrollView.addSubview(talkTitle)
-        scrollView.addSubview(showDetailLabel)
+        //scrollView.addSubview(showDetailLabel)
         scrollView.addSubview(speakerLabel)
-        scrollView.addSubview(date)
-        scrollView.contentSize = CGSize(width: self.textView!.frame.width, height: self.textView!.frame.height + 190)
+        
+        scrollView.contentSize = CGSize(width: self.textView!.frame.width, height: self.talkDescLabel.frame.height + 160)
         self.textView!.addSubview(scrollView)
         
-        date.text = talk!.startDate! + "\n" + talk!.startTime! + "\n" + talk!.endTime!
         talkTitle.text = talk?.title
         speakerLabel.text = talk?.speaker
         talkDescLabel.text = talk?.talkDescription
-        showDetailLabel.text = "Show more"
+        //showDetailLabel.text = "Show more"
         
     }
     
@@ -137,14 +149,14 @@ class TalkDetailViewController: UIViewController {
         label.text = text
         label.font = UIFont.systemFontOfSize(16.0)
         label.sizeToFit()
-        return CGRectMake(20, 120, self.view!.frame.width-90, label.frame.height)
+        return CGRectMake(20, 130, self.view!.frame.width-90, label.frame.height)
         
     }
     
     func sendTwitter(sender : UIBarButtonItem) {
         if SLComposeViewController.isAvailableForServiceType(SLServiceTypeTwitter){
             let twitterSheet:SLComposeViewController = SLComposeViewController(forServiceType: SLServiceTypeTwitter)
-            twitterSheet.setInitialText("@pyconcz, " + talk!.twitter! ?? "@")
+            twitterSheet.setInitialText("#pyconcz " + talk!.twitter! ?? "@")
             self.presentViewController(twitterSheet, animated: true, completion: nil)
         } else {
             let alert = UIAlertController(title: "Accounts", message: "Please login to a Twitter account to share.", preferredStyle: UIAlertControllerStyle.Alert)

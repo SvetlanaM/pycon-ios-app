@@ -31,6 +31,7 @@ class Talk : NSObject {
     
     let ref : FIRDatabaseReference?
     
+    
     init(key : String, title : String, avatar : String, bio : String, talkDescription : String, endTime : String, endDate : String, github : String, speaker : String, startTime : String, startDate : String, twitter : String, type : String) {
         self.key = key
         self.title = title
