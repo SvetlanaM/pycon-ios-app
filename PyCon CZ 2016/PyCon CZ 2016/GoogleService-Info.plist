@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>AD_UNIT_ID_FOR_BANNER_TEST</key>
+	<string>ca-app-pub-3940256099942544/2934735716</string>
+	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
+	<string>ca-app-pub-3940256099942544/4411468910</string>
+	<key>CLIENT_ID</key>
+	<string>299025362856-0u6va84465njujb6tt8gbq8ub0dagci4.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.299025362856-0u6va84465njujb6tt8gbq8ub0dagci4</string>
+	<key>API_KEY</key>
+	<string>AIzaSyDYbcQ2zArsz1TX4nRdEJojGwxWhSgvfrQ</string>
+	<key>GCM_SENDER_ID</key>
+	<string>299025362856</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.margetova.PyCon-CZ-2016</string>
+	<key>PROJECT_ID</key>
+	<string>pycon-630b8</string>
+	<key>STORAGE_BUCKET</key>
+	<string>pycon-630b8.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<true/>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false/>
+	<key>IS_APPINVITE_ENABLED</key>
+	<false/>
+	<key>IS_GCM_ENABLED</key>
+	<true/>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true/>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:299025362856:ios:d4b3baea60843701</string>
+	<key>DATABASE_URL</key>
+	<string>https://pycon-630b8.firebaseio.com</string>
+</dict>
+</plist>
