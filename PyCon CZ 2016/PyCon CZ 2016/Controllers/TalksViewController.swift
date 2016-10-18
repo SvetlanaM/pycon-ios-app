@@ -23,12 +23,24 @@ class TalksViewController: UIViewController, UICollectionViewDelegateFlowLayout,
         
         super.viewDidLoad()
         
-        SVProgressHUD.show()
         
-        ref = FIRDatabase.database().reference().child("d105")
-        checkDate("d105")
-        ref.keepSynced(true)
-        startObservingDB()
+        
+        
+        
+        
+        let connectedRef = FIRDatabase.database().referenceWithPath(".info/connected")
+        connectedRef.observeEventType(.Value, withBlock: { snapshot in
+            if let connected = snapshot.value as? Bool where connected {
+                if connected == true {
+                    SVProgressHUD.show()
+                    self.changeRoom(UISegmentedControl)
+                     }
+            } else {
+                
+                print (self.talks.count)
+                
+            }
+        })
         
         // Layout setup
         let layout = UICollectionViewFlowLayout()
@@ -40,6 +52,14 @@ class TalksViewController: UIViewController, UICollectionViewDelegateFlowLayout,
         self.view.addSubview(self.collection!)
         self.collection?.backgroundColor = UIColor(red: 246/255.0, green: 248/255.0, blue: 251/255.0, alpha: 1.0)
     }
+    
+   
+    
+   
+    
+    
+    
+    
     
     @IBAction func shareOnTwitter(sender: UIBarButtonItem) {
         if SLComposeViewController.isAvailableForServiceType(SLServiceTypeTwitter){
@@ -55,10 +75,13 @@ class TalksViewController: UIViewController, UICollectionViewDelegateFlowLayout,
     
     @IBAction func changeRoom(sender: AnyObject) {
         if (segmentControl.selectedSegmentIndex == 0) {
+            
             ref = FIRDatabase.database().reference().child("d105")
             ref.keepSynced(true)
             checkDate("d105")
             startObservingDB()
+            
+            
         } else if (segmentControl.selectedSegmentIndex == 1) {
             ref = FIRDatabase.database().reference().child("d0206")
             ref.keepSynced(true)
@@ -126,10 +149,14 @@ class TalksViewController: UIViewController, UICollectionViewDelegateFlowLayout,
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         
             let cell = collectionView.cellForItemAtIndexPath(indexPath)
+        
+        
             if talks[indexPath.row].type == "event" {
                 cell?.selected = false
             } else {
+                
                 cell?.selected = true
+                
                 let vc = TalkDetailViewController()
                 vc.talk = talks[indexPath.row]
                 self.navigationController?.showViewController(vc, sender: self)
@@ -153,6 +180,7 @@ class TalksViewController: UIViewController, UICollectionViewDelegateFlowLayout,
     func startObservingDB() {
         ref.observeEventType(.Value, withBlock: {( snapshot:FIRDataSnapshot) in
             
+            
             var newTalks = [Talk]()
             self.talks = []
             
@@ -168,8 +196,15 @@ class TalksViewController: UIViewController, UICollectionViewDelegateFlowLayout,
                 }
             }
             
+            
             self.collection?.reloadData()
             SVProgressHUD.dismiss()
+            
+            
+            
+            
+            
+
             
         }) {(error : NSError) in
             print(error.description)

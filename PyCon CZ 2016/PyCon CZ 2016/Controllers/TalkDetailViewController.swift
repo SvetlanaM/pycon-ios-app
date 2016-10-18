@@ -33,7 +33,7 @@ class TalkDetailViewController: UIViewController {
         let twitterButton : UIBarButtonItem = UIBarButtonItem(image: UIImage(named: "twitter"), style: UIBarButtonItemStyle.Plain, target: self, action: "sendTwitter:")
         
         
-        let timelineButton : UIBarButtonItem = UIBarButtonItem(image: UIImage(named: "twitter"), style: UIBarButtonItemStyle.Plain, target: self, action: "showTimeline:")
+        let timelineButton : UIBarButtonItem = UIBarButtonItem(image: UIImage(named: "hashtag"), style: UIBarButtonItemStyle.Plain, target: self, action: "showTimeline:")
         self.navigationItem.rightBarButtonItems = [twitterButton, timelineButton]
 
         
