@@ -17,6 +17,7 @@ class TalksViewController: UIViewController, UICollectionViewDelegateFlowLayout,
     
     var talks = [Talk]()
     var collection : UICollectionView?
+    var infoLabel : UILabel?
 
     @IBOutlet weak var segmentControl: UISegmentedControl!
     override func viewDidLoad() {
@@ -24,7 +25,13 @@ class TalksViewController: UIViewController, UICollectionViewDelegateFlowLayout,
         super.viewDidLoad()
         
         
-        
+        delay(4) {
+            if self.talks.isEmpty {
+                let alert = UIAlertController(title: "Network Error", message: "No data connection. Please connect via your data or via Wifi.", preferredStyle: UIAlertControllerStyle.Alert)
+                alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+                self.presentViewController(alert, animated: true, completion: nil)
+            }
+        }
         
         
         
@@ -52,6 +59,15 @@ class TalksViewController: UIViewController, UICollectionViewDelegateFlowLayout,
         self.view.addSubview(self.collection!)
         self.collection?.backgroundColor = UIColor(red: 246/255.0, green: 248/255.0, blue: 251/255.0, alpha: 1.0)
     }
+    
+    func delay(delay:Double, closure:()->()) {
+        dispatch_after(
+            dispatch_time(
+                DISPATCH_TIME_NOW,
+                Int64(delay * Double(NSEC_PER_SEC))
+            ),
+            dispatch_get_main_queue(), closure)
+        }
     
    
     
@@ -83,11 +99,13 @@ class TalksViewController: UIViewController, UICollectionViewDelegateFlowLayout,
             
             
         } else if (segmentControl.selectedSegmentIndex == 1) {
+            SVProgressHUD.show()
             ref = FIRDatabase.database().reference().child("d0206")
             ref.keepSynced(true)
             checkDate("d0206")
             startObservingDB()
         } else if (segmentControl.selectedSegmentIndex == 2) {
+            SVProgressHUD.show()
             ref = FIRDatabase.database().reference().child("d0207")
             ref.keepSynced(true)
             checkDate("d0207")
@@ -131,7 +149,9 @@ class TalksViewController: UIViewController, UICollectionViewDelegateFlowLayout,
     }
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return talks.count
+        
+            return talks.count
+        
     }
     
     func collectionView(collectionView : UICollectionView, layout collectionViewLayout : UICollectionViewLayout, minimumInteritemSpacingForSectionAtIndex section : Int) -> CGFloat {
@@ -170,9 +190,13 @@ class TalksViewController: UIViewController, UICollectionViewDelegateFlowLayout,
         let DateInFormat:String = dateFormatter.stringFromDate(date)
         
         for talk in talks {
-            let talkDate = talk.startDate! + " " + talk.endTime!
-            if DateInFormat == talkDate {
-                ref.child("\(room)/\(talk.key)/active").setValue(false)
+            if talks.last != true {
+                if let sDate = talk.rawDate, let sEndTime = talk.endTime {
+                let talkDate = sDate + " " + sEndTime
+                if DateInFormat == talkDate {
+                    ref.child("\(room)/\(talk.key)/active").setValue(false)
+                    }
+            }
             }
         }
     }
@@ -182,6 +206,7 @@ class TalksViewController: UIViewController, UICollectionViewDelegateFlowLayout,
             
             
             var newTalks = [Talk]()
+            
             self.talks = []
             
             for talk in snapshot.children {

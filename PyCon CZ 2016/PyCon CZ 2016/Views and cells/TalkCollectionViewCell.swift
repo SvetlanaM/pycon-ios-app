@@ -49,7 +49,7 @@ class TalkCollectionViewCell: UICollectionViewCell {
         let speakerFrame = CGRectMake(90, -15, (self.frame.size.width)-110, 200)
         speakerLabel = UILabel(frame: speakerFrame)
         speakerLabel.font = UIFont.systemFontOfSize(14.0)
-        speakerLabel.textColor = UIColor(red: 205/255.0, green: 209/255.0, blue: 213/255.0, alpha: 1.0)
+        speakerLabel.textColor = UIColor(red: 153/255.0, green: 154/255.0, blue: 230/255.0, alpha: 1.0)
         speakerLabel.textAlignment = .Left
         speakerLabel.numberOfLines = 1
         speakerLabel.lineBreakMode = .ByWordWrapping
@@ -58,8 +58,13 @@ class TalkCollectionViewCell: UICollectionViewCell {
     }
     
     func configureCell(talks : Talk) {
-        if let sDate = talks.startDate, let sStartTime = talks.startTime, let sEndTime = talks.endTime {
-            date.text = sDate + "\n" + sStartTime + "\n" + sEndTime
+        if let sDate = talks.startDate, let sStartTime = talks.startTime, let sEndTime = talks.endTime, let sEndDate = talks.endDate {
+            if sDate == sEndDate {
+                date.text = sDate + "\n" + sStartTime + "\n" + sEndTime
+            } else {
+                date.text = sDate + "\n" + sStartTime
+            }
+            
         }
         title.text = talks.title
         speakerLabel.text = talks.speaker

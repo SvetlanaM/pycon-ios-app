@@ -27,6 +27,7 @@ class Talk : NSObject {
     var votes = [Int]()
     var type : String?
     var active : Bool?
+    var rawDate : String?
     
     
     let ref : FIRDatabaseReference?
@@ -110,6 +111,25 @@ class Talk : NSObject {
             endTime = talkEndTime
         } else {
             endTime = ""
+        }
+        
+        if let talkEndDate1 = snapshot.value!["end_date"] as? String {
+            rawDate = talkEndDate1
+        } else {
+            rawDate = ""
+        }
+        
+        if let talkEndDate = snapshot.value!["end_date"] as? String {
+            
+            if talkEndDate == "28.10.2016" {
+                endDate = "FRI"
+            } else if talkEndDate == "29.10.2016" {
+                endDate = "SAT"
+            } else if talkEndDate == "30.10.2016" {
+                endDate = "SUN"
+            }
+        } else {
+            endDate = ""
         }
         
         if let talkStartDate = snapshot.value!["start_date"] as? String {

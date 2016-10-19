@@ -30,10 +30,10 @@ class TalkDetailViewController: UIViewController {
         
         navigationItem.title = talk?.title
         navigationController!.navigationBar.tintColor = UIColor.whiteColor()
-        let twitterButton : UIBarButtonItem = UIBarButtonItem(image: UIImage(named: "twitter"), style: UIBarButtonItemStyle.Plain, target: self, action: "sendTwitter:")
+        let twitterButton : UIBarButtonItem = UIBarButtonItem(image: UIImage(named: "twitter"), style: UIBarButtonItemStyle.Plain, target: self, action: #selector(TalkDetailViewController.sendTwitter(_:)))
         
         
-        let timelineButton : UIBarButtonItem = UIBarButtonItem(image: UIImage(named: "hashtag"), style: UIBarButtonItemStyle.Plain, target: self, action: "showTimeline:")
+        let timelineButton : UIBarButtonItem = UIBarButtonItem(image: UIImage(named: "hashtag"), style: UIBarButtonItemStyle.Plain, target: self, action: #selector(TalkDetailViewController.showTimeline(_:)))
         self.navigationItem.rightBarButtonItems = [twitterButton, timelineButton]
 
         
