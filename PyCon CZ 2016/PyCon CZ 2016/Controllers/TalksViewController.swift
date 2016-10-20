@@ -114,11 +114,13 @@ class TalksViewController: UIViewController, UICollectionViewDelegateFlowLayout,
             ref.keepSynced(true)
         } else if (segmentControl.selectedSegmentIndex == 3) {
             ref = FIRDatabase.database().reference().child("a112")
+            SVProgressHUD.show()
             checkDate("a112")
             startObservingDB()
             ref.keepSynced(true)
         } else if (segmentControl.selectedSegmentIndex == 4) {
             ref = FIRDatabase.database().reference().child("a113")
+            SVProgressHUD.show()
             checkDate("a113")
             startObservingDB()
             ref.keepSynced(true)
