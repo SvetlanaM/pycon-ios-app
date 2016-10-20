@@ -22,6 +22,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FIRApp.configure()
         Fabric.with([Twitter.self])
         UIApplication.sharedApplication().statusBarStyle = .LightContent
+        FIRDatabase.database().persistenceEnabled = true
+
         return true
     }
 

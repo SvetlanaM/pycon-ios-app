@@ -23,10 +23,13 @@ class TalksViewController: UIViewController, UICollectionViewDelegateFlowLayout,
     override func viewDidLoad() {
         
         super.viewDidLoad()
+        SVProgressHUD.show()
+        
         
         
         delay(4) {
             if self.talks.isEmpty {
+                SVProgressHUD.dismiss()
                 let alert = UIAlertController(title: "Network Error", message: "No data connection. Please connect via your data or via Wifi.", preferredStyle: UIAlertControllerStyle.Alert)
                 alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
                 self.presentViewController(alert, animated: true, completion: nil)
@@ -39,12 +42,13 @@ class TalksViewController: UIViewController, UICollectionViewDelegateFlowLayout,
         connectedRef.observeEventType(.Value, withBlock: { snapshot in
             if let connected = snapshot.value as? Bool where connected {
                 if connected == true {
-                    SVProgressHUD.show()
+                    
                     self.changeRoom(UISegmentedControl)
+                    
                      }
             } else {
                 
-                print (self.talks.count)
+                print ("")
                 
             }
         })
@@ -93,33 +97,31 @@ class TalksViewController: UIViewController, UICollectionViewDelegateFlowLayout,
         if (segmentControl.selectedSegmentIndex == 0) {
             
             ref = FIRDatabase.database().reference().child("d105")
-            ref.keepSynced(true)
             checkDate("d105")
             startObservingDB()
-            
-            
+            ref.keepSynced(true)
         } else if (segmentControl.selectedSegmentIndex == 1) {
             SVProgressHUD.show()
             ref = FIRDatabase.database().reference().child("d0206")
-            ref.keepSynced(true)
             checkDate("d0206")
             startObservingDB()
+            ref.keepSynced(true)
         } else if (segmentControl.selectedSegmentIndex == 2) {
             SVProgressHUD.show()
             ref = FIRDatabase.database().reference().child("d0207")
-            ref.keepSynced(true)
             checkDate("d0207")
             startObservingDB()
+            ref.keepSynced(true)
         } else if (segmentControl.selectedSegmentIndex == 3) {
             ref = FIRDatabase.database().reference().child("a112")
-            ref.keepSynced(true)
             checkDate("a112")
             startObservingDB()
+            ref.keepSynced(true)
         } else if (segmentControl.selectedSegmentIndex == 4) {
             ref = FIRDatabase.database().reference().child("a113")
-            ref.keepSynced(true)
             checkDate("a113")
             startObservingDB()
+            ref.keepSynced(true)
         }
         
     }
@@ -221,6 +223,9 @@ class TalksViewController: UIViewController, UICollectionViewDelegateFlowLayout,
                 }
             }
             
+            if self.talks.isEmpty {
+                SVProgressHUD.dismiss()
+            }
             
             self.collection?.reloadData()
             SVProgressHUD.dismiss()

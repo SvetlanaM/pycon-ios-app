@@ -1,8 +1,9 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="DbS-j8-Zf8">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="DbS-j8-Zf8">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--PyCon CZ 2016-->
@@ -14,17 +15,12 @@
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <rect key="frame" x="0.0" y="64" width="414" height="672"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bUQ-3u-sn3">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="18"/>
                                 <subviews>
                                     <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="L13-rD-IXk">
-                                        <rect key="frame" x="-15" y="27" width="350" height="29"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="350" id="vQ7-8c-FNW"/>
-                                        </constraints>
                                         <segments>
                                             <segment title="D105"/>
                                             <segment title="D0206"/>
@@ -37,15 +33,16 @@
                                         </connections>
                                     </segmentedControl>
                                 </subviews>
-                                <color key="backgroundColor" red="0.59999999999999998" green="0.60392156860000001" blue="0.90196078430000004" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.59999999999999998" green="0.60392156860000001" blue="0.90196078430000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstItem="L13-rD-IXk" firstAttribute="centerX" secondItem="bUQ-3u-sn3" secondAttribute="centerX" id="Fai-Ho-f0O"/>
+                                    <constraint firstItem="L13-rD-IXk" firstAttribute="leading" secondItem="bUQ-3u-sn3" secondAttribute="leading" constant="20" id="28f-3I-yPA"/>
                                     <constraint firstItem="L13-rD-IXk" firstAttribute="top" secondItem="bUQ-3u-sn3" secondAttribute="top" constant="27" id="dlR-7x-qwT"/>
+                                    <constraint firstAttribute="trailing" secondItem="L13-rD-IXk" secondAttribute="trailing" constant="20" id="xvp-QQ-1gG"/>
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="bUQ-3u-sn3" secondAttribute="trailing" id="2A0-Ct-jNm"/>
                             <constraint firstItem="bUQ-3u-sn3" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="4y1-Qb-xPY"/>
@@ -53,7 +50,7 @@
                             <constraint firstItem="bUQ-3u-sn3" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="Yss-eG-TRT"/>
                             <constraint firstItem="bUQ-3u-sn3" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="n4G-yN-bLl"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="bUQ-3u-sn3" secondAttribute="bottom" constant="486" id="nQA-G7-VPO"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="bUQ-3u-sn3" secondAttribute="bottom" constant="486" id="rog-dJ-xbJ"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="bUQ-3u-sn3" secondAttribute="bottom" constant="115" id="rog-dJ-xbJ"/>
                             <constraint firstAttribute="trailing" secondItem="bUQ-3u-sn3" secondAttribute="trailing" id="vVO-qS-kLk"/>
                         </constraints>
                         <variation key="default">
@@ -67,10 +64,10 @@
                     </view>
                     <navigationItem key="navigationItem" title="PyCon CZ 2016" id="gLx-KK-bP2">
                         <barButtonItem key="backBarButtonItem" id="aR0-mv-KcZ">
-                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" image="twitter@1x" id="ELL-ow-viy">
-                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <action selector="shareOnTwitter:" destination="BYZ-38-t0r" id="3Cv-HL-Zfr"/>
                             </connections>
@@ -82,30 +79,27 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1092" y="239"/>
+            <point key="canvasLocation" x="1091.304347826087" y="238.85869565217394"/>
         </scene>
         <!--Talk Detail View Controller-->
         <scene sceneID="2La-gF-OlY">
             <objects>
-                <viewController id="K0d-T0-c86" customClass="TalkDetailViewController" customModule="PyCon_CZ_2016" customModuleProvider="target" sceneMemberID="viewController">
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
-                </viewController>
+                <viewController id="K0d-T0-c86" customClass="TalkDetailViewController" customModule="PyCon_CZ_2016" customModuleProvider="target" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yC0-8d-Fff" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1516" y="239"/>
+            <point key="canvasLocation" x="1800" y="239"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="MvN-pe-Cac">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="DbS-j8-Zf8" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="knn-QV-Xsl">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="knn-QV-Xsl">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" red="0.59999999999999998" green="0.60392156862745094" blue="0.90196078431372551" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" red="0.59999999999999998" green="0.60392156862745094" blue="0.90196078431372551" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <textAttributes key="titleTextAttributes">
-                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
