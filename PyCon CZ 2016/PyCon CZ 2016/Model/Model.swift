@@ -10,4 +10,16 @@ import Foundation
 import Firebase
 import FirebaseDatabase
 
-
+class DataManager {
+    
+    static let sharedInstance = DataManager()
+    var ref : FIRDatabaseReference?
+    var rooms = [Room]()
+    var talks = [Talk]()
+    
+    let mainRef = FIRDatabase.database().reference()
+    
+    //editable pycon item
+    
+    
+}

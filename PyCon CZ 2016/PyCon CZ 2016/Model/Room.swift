@@ -14,6 +14,7 @@ class Room : NSObject {
     let key : String?
     let ref : FIRDatabaseReference?
     var roomName : String?
+    var talks = [Talk]()
     
     init(key : String, roomName : String) {
         self.key = key

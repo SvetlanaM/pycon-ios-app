@@ -23,6 +23,7 @@
 		DCF3D2681DB110A600BBEA5F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DCF3D2671DB110A600BBEA5F /* GoogleService-Info.plist */; };
 		DCF841011DD7341D007AD042 /* Talk.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCF841001DD7341D007AD042 /* Talk.swift */; };
 		DCF841031DD73A00007AD042 /* Room.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCF841021DD73A00007AD042 /* Room.swift */; };
+		DCF841051DD740E3007AD042 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCF841041DD740E3007AD042 /* Config.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +47,7 @@
 		DCF3D2671DB110A600BBEA5F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		DCF841001DD7341D007AD042 /* Talk.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Talk.swift; path = Model/Talk.swift; sourceTree = "<group>"; };
 		DCF841021DD73A00007AD042 /* Room.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Room.swift; path = Model/Room.swift; sourceTree = "<group>"; };
+		DCF841041DD740E3007AD042 /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Config.swift; path = Model/Config.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,6 +140,7 @@
 				DCF3D2651DB10B7C00BBEA5F /* Model.swift */,
 				DCF841001DD7341D007AD042 /* Talk.swift */,
 				DCF841021DD73A00007AD042 /* Room.swift */,
+				DCF841041DD740E3007AD042 /* Config.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -294,6 +297,7 @@
 			files = (
 				DCF841011DD7341D007AD042 /* Talk.swift in Sources */,
 				DC7DF1A61DB533F80045A483 /* TwitterViewController.swift in Sources */,
+				DCF841051DD740E3007AD042 /* Config.swift in Sources */,
 				DCF841031DD73A00007AD042 /* Room.swift in Sources */,
 				DC14AB3C1DB259AB0067BFC0 /* TalksViewController.swift in Sources */,
 				DCF3D2661DB10B7C00BBEA5F /* Model.swift in Sources */,
