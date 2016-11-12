@@ -18,6 +18,8 @@ class TalksViewController: UIViewController, UICollectionViewDelegateFlowLayout,
     var talks = [Talk]()
     var collection : UICollectionView?
     var infoLabel : UILabel?
+    
+    var rooms = [Room]()
 
     @IBOutlet weak var segmentControl: UISegmentedControl!
     override func viewDidLoad() {
@@ -25,14 +27,26 @@ class TalksViewController: UIViewController, UICollectionViewDelegateFlowLayout,
         super.viewDidLoad()
         SVProgressHUD.show()
         
+        let rootRef = FIRDatabase.database().reference()
+        let itemsRef = rootRef.child("pyconcz2016")
+        
+        let roomsRef = itemsRef.child("rooms")
+        
+        print (roomsRef.key)
+        
+        
         
         
         delay(4) {
             if self.talks.isEmpty {
                 SVProgressHUD.dismiss()
-                let alert = UIAlertController(title: "Network Error", message: "No data connection. Please connect via your data or via Wifi.", preferredStyle: UIAlertControllerStyle.Alert)
+                let alert = UIAlertController(title: "Network Error", message: "No data connection. Please connect via your data or via Wifi. But you still have offline access to your data.", preferredStyle: UIAlertControllerStyle.Alert)
                 alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
                 self.presentViewController(alert, animated: true, completion: nil)
+                self.ref = FIRDatabase.database().reference().child("d105")
+                
+                self.startObservingDB()
+                self.ref.keepSynced(true)
             }
         }
         
@@ -73,14 +87,6 @@ class TalksViewController: UIViewController, UICollectionViewDelegateFlowLayout,
             dispatch_get_main_queue(), closure)
         }
     
-   
-    
-   
-    
-    
-    
-    
-    
     @IBAction func shareOnTwitter(sender: UIBarButtonItem) {
         if SLComposeViewController.isAvailableForServiceType(SLServiceTypeTwitter){
             let twitterSheet:SLComposeViewController = SLComposeViewController(forServiceType: SLServiceTypeTwitter)
@@ -97,31 +103,31 @@ class TalksViewController: UIViewController, UICollectionViewDelegateFlowLayout,
         if (segmentControl.selectedSegmentIndex == 0) {
             
             ref = FIRDatabase.database().reference().child("d105")
-            checkDate("d105")
+            
             startObservingDB()
             ref.keepSynced(true)
         } else if (segmentControl.selectedSegmentIndex == 1) {
             SVProgressHUD.show()
             ref = FIRDatabase.database().reference().child("d0206")
-            checkDate("d0206")
+            
             startObservingDB()
             ref.keepSynced(true)
         } else if (segmentControl.selectedSegmentIndex == 2) {
             SVProgressHUD.show()
             ref = FIRDatabase.database().reference().child("d0207")
-            checkDate("d0207")
+            
             startObservingDB()
             ref.keepSynced(true)
         } else if (segmentControl.selectedSegmentIndex == 3) {
             ref = FIRDatabase.database().reference().child("a112")
             SVProgressHUD.show()
-            checkDate("a112")
+            
             startObservingDB()
             ref.keepSynced(true)
         } else if (segmentControl.selectedSegmentIndex == 4) {
             ref = FIRDatabase.database().reference().child("a113")
             SVProgressHUD.show()
-            checkDate("a113")
+            
             startObservingDB()
             ref.keepSynced(true)
         }
@@ -187,23 +193,7 @@ class TalksViewController: UIViewController, UICollectionViewDelegateFlowLayout,
             }
         }
     
-    func checkDate(room : String) {
-        let date = NSDate()
-        let dateFormatter:NSDateFormatter = NSDateFormatter()
-        dateFormatter.dateFormat = "dd.MM.yyyy HH:mm"
-        let DateInFormat:String = dateFormatter.stringFromDate(date)
-        
-        for talk in talks {
-            if talks.last != true {
-                if let sDate = talk.rawDate, let sEndTime = talk.endTime {
-                let talkDate = sDate + " " + sEndTime
-                if DateInFormat == talkDate {
-                    ref.child("\(room)/\(talk.key)/active").setValue(false)
-                    }
-            }
-            }
-        }
-    }
+    
     
     func startObservingDB() {
         ref.observeEventType(.Value, withBlock: {( snapshot:FIRDataSnapshot) in

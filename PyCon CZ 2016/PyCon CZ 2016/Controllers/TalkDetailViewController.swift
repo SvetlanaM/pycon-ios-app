@@ -68,18 +68,7 @@ class TalkDetailViewController: UIViewController {
         // Date setup
         
         
-        let urlString = talk?.avatar
-        if let url = urlString {
-            let url1 = NSURL(string: url)
-            let data = NSData(contentsOfURL: url1!)
-            if let data1 = data {
-                let imageData = UIImage(data: data1)
-                speakerImage = UIImageView(image: imageData)
-            } else {
-                let image = UIImage(named: "speaker_avatar")
-                speakerImage = UIImageView(image: image)
-            }
-        }
+        
         let imageFrame = CGRectMake(18, 35, 65, 65)
         speakerImage?.frame = imageFrame
         speakerImage?.layer.cornerRadius = (speakerImage?.frame.height)!/2

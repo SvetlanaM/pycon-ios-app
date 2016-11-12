@@ -22,9 +22,9 @@
                                 <subviews>
                                     <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="L13-rD-IXk">
                                         <segments>
-                                            <segment title="D105"/>
-                                            <segment title="D0206"/>
-                                            <segment title="D0207"/>
+                                            <segment title="Main"/>
+                                            <segment title="Right"/>
+                                            <segment title="Left"/>
                                             <segment title="A112"/>
                                             <segment title="A113"/>
                                         </segments>

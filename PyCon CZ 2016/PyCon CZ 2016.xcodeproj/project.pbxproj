@@ -15,14 +15,13 @@
 		DC5BA5201DAD001B00A71450 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DC5BA51F1DAD001B00A71450 /* Assets.xcassets */; };
 		DC5BA5231DAD001B00A71450 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC5BA5211DAD001B00A71450 /* LaunchScreen.storyboard */; };
 		DC7DF1A61DB533F80045A483 /* TwitterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7DF1A51DB533F80045A483 /* TwitterViewController.swift */; };
-		DC7DF1B71DB562620045A483 /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DC7DF1B21DB562620045A483 /* Roboto-Bold.ttf */; };
 		DC7DF1B81DB562620045A483 /* Roboto-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DC7DF1B31DB562620045A483 /* Roboto-Light.ttf */; };
 		DC7DF1B91DB562620045A483 /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DC7DF1B41DB562620045A483 /* Roboto-Medium.ttf */; };
-		DC7DF1BA1DB562620045A483 /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DC7DF1B51DB562620045A483 /* Roboto-Regular.ttf */; };
 		DC7DF1BB1DB562620045A483 /* Roboto-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DC7DF1B61DB562620045A483 /* Roboto-Thin.ttf */; };
 		DC8AF3FD1DB3CA430093D7D7 /* TalkDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC8AF3FC1DB3CA430093D7D7 /* TalkDetailViewController.swift */; };
 		DCF3D2661DB10B7C00BBEA5F /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCF3D2651DB10B7C00BBEA5F /* Model.swift */; };
 		DCF3D2681DB110A600BBEA5F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DCF3D2671DB110A600BBEA5F /* GoogleService-Info.plist */; };
+		DCF841011DD7341D007AD042 /* Talk.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCF841001DD7341D007AD042 /* Talk.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,14 +37,13 @@
 		DC5BA5221DAD001B00A71450 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DC5BA5241DAD001B00A71450 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DC7DF1A51DB533F80045A483 /* TwitterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TwitterViewController.swift; path = Controllers/TwitterViewController.swift; sourceTree = "<group>"; };
-		DC7DF1B21DB562620045A483 /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Roboto-Bold.ttf"; path = "/Users/svetlanamargetova/Desktop/pyconcz2016/PyCon CZ 2016/PyCon CZ 2016/Roboto-Bold.ttf"; sourceTree = "<absolute>"; };
 		DC7DF1B31DB562620045A483 /* Roboto-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Light.ttf"; sourceTree = "<group>"; };
 		DC7DF1B41DB562620045A483 /* Roboto-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Medium.ttf"; sourceTree = "<group>"; };
-		DC7DF1B51DB562620045A483 /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Roboto-Regular.ttf"; path = "/Users/svetlanamargetova/Desktop/pyconcz2016/PyCon CZ 2016/PyCon CZ 2016/Roboto-Regular.ttf"; sourceTree = "<absolute>"; };
 		DC7DF1B61DB562620045A483 /* Roboto-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Thin.ttf"; sourceTree = "<group>"; };
 		DC8AF3FC1DB3CA430093D7D7 /* TalkDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TalkDetailViewController.swift; path = Controllers/TalkDetailViewController.swift; sourceTree = "<group>"; };
 		DCF3D2651DB10B7C00BBEA5F /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Model.swift; path = Model/Model.swift; sourceTree = "<group>"; };
 		DCF3D2671DB110A600BBEA5F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		DCF841001DD7341D007AD042 /* Talk.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Talk.swift; path = Model/Talk.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,10 +123,8 @@
 		DC7DF1A71DB55E820045A483 /* Font */ = {
 			isa = PBXGroup;
 			children = (
-				DC7DF1B21DB562620045A483 /* Roboto-Bold.ttf */,
 				DC7DF1B31DB562620045A483 /* Roboto-Light.ttf */,
 				DC7DF1B41DB562620045A483 /* Roboto-Medium.ttf */,
-				DC7DF1B51DB562620045A483 /* Roboto-Regular.ttf */,
 				DC7DF1B61DB562620045A483 /* Roboto-Thin.ttf */,
 			);
 			name = Font;
@@ -138,6 +134,7 @@
 			isa = PBXGroup;
 			children = (
 				DCF3D2651DB10B7C00BBEA5F /* Model.swift */,
+				DCF841001DD7341D007AD042 /* Talk.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -216,10 +213,8 @@
 			files = (
 				DC5BA5231DAD001B00A71450 /* LaunchScreen.storyboard in Resources */,
 				DCF3D2681DB110A600BBEA5F /* GoogleService-Info.plist in Resources */,
-				DC7DF1BA1DB562620045A483 /* Roboto-Regular.ttf in Resources */,
 				DC7DF1B81DB562620045A483 /* Roboto-Light.ttf in Resources */,
 				DC7DF1B91DB562620045A483 /* Roboto-Medium.ttf in Resources */,
-				DC7DF1B71DB562620045A483 /* Roboto-Bold.ttf in Resources */,
 				DC5BA5201DAD001B00A71450 /* Assets.xcassets in Resources */,
 				DC5BA51E1DAD001B00A71450 /* Main.storyboard in Resources */,
 				DC7DF1BB1DB562620045A483 /* Roboto-Thin.ttf in Resources */,
@@ -294,6 +289,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DCF841011DD7341D007AD042 /* Talk.swift in Sources */,
 				DC7DF1A61DB533F80045A483 /* TwitterViewController.swift in Sources */,
 				DC14AB3C1DB259AB0067BFC0 /* TalksViewController.swift in Sources */,
 				DCF3D2661DB10B7C00BBEA5F /* Model.swift in Sources */,
