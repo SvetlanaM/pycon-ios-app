@@ -64,15 +64,18 @@ class Talk : NSObject {
     
         
         if let speakerAvatar = snapshot.value!["avatar"] as? String {
-            let urlString = speakerAvatar
+            var urlString = speakerAvatar
             let url = urlString
             let urlImage = NSURL(string: url)
             let data = NSData(contentsOfURL: urlImage!)
             if let dataContent = data {
                 avatar = UIImage(data: dataContent)
             } else {
+                
                 avatar = UIImage(named: "speaker_avatar")
+
             }
+            
         }
         
         if let speakerBio = snapshot.value!["bio"] as? String {

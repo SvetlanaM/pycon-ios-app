@@ -42,8 +42,10 @@ class TalkDetailViewController: UIViewController {
         self.view.backgroundColor = UIColor(red: 247/255.0, green: 249/255.0, blue: 252/255.0, alpha: 1.0)
         
         // Image setup
-        self.imageV = UIImageView(frame : CGRectMake(0, (self.view.frame.height) - 250, self.view.frame.width, 200))
-        self.imageV?.image = UIImage(named: "pycon_overlay")
+        self.imageV = UIImageView(frame : CGRectMake(0, (self.view.frame.height) - 200, self.view.frame.width, 200))
+        
+        
+        self.imageV?.image = DataManager.sharedInstance.config.pyconLogo
         self.imageV?.contentMode = .ScaleAspectFill
         self.imageV?.clipsToBounds = true
         self.view.addSubview(imageV ?? UIImageView())
@@ -68,12 +70,13 @@ class TalkDetailViewController: UIViewController {
         // Date setup
         
         
-        
+        speakerImage = UIImageView(image : talk?.avatar)
         let imageFrame = CGRectMake(18, 35, 65, 65)
         speakerImage?.frame = imageFrame
         speakerImage?.layer.cornerRadius = (speakerImage?.frame.height)!/2
         speakerImage?.clipsToBounds = true
         speakerImage?.contentMode = UIViewContentMode.ScaleAspectFill
+        
         textView!.addSubview(speakerImage ?? UIImageView())
         
         // Title setup
@@ -88,9 +91,8 @@ class TalkDetailViewController: UIViewController {
         let speakerFrame = CGRectMake(90, -10, (self.textView!.frame.width)-100, 200)
         speakerLabel = UILabel(frame: speakerFrame)
         speakerLabel.font = UIFont.systemFontOfSize(14.0)
-        speakerLabel.textColor = UIColor(red: 153/255.0, green: 154/255.0, blue: 230/255.0, alpha: 1.0)
+        speakerLabel.textColor = DataManager.sharedInstance.config.pyconColor
         speakerLabel.textAlignment = .Left
-        speakerLabel.numberOfLines = 2
         speakerLabel.lineBreakMode = .ByWordWrapping
         talkTitle.addSubview(speakerLabel)
         
@@ -152,7 +154,7 @@ class TalkDetailViewController: UIViewController {
     func sendTwitter(sender : UIBarButtonItem) {
         if SLComposeViewController.isAvailableForServiceType(SLServiceTypeTwitter){
             let twitterSheet:SLComposeViewController = SLComposeViewController(forServiceType: SLServiceTypeTwitter)
-            twitterSheet.setInitialText("#pyconcz " + talk!.twitter! ?? "@")
+            twitterSheet.setInitialText(DataManager.sharedInstance.config.twitter! + " " +  talk!.twitter! ?? "@")
             self.presentViewController(twitterSheet, animated: true, completion: nil)
         } else {
             let alert = UIAlertController(title: "Accounts", message: "Please login to a Twitter account to share.", preferredStyle: UIAlertControllerStyle.Alert)

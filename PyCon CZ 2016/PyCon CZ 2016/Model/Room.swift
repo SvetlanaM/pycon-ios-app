@@ -13,22 +13,18 @@ import FirebaseDatabase
 class Room : NSObject {
     let key : String?
     let ref : FIRDatabaseReference?
-    var roomName : String?
     var talks = [Talk]()
     
-    init(key : String, roomName : String) {
+    init(key : String) {
         self.key = key
-        self.roomName = roomName
         self.ref = nil
     }
     
     init(snapshot : FIRDataSnapshot) {
         key = snapshot.key
         ref = snapshot.ref
-        
-        if let name = snapshot.value!["rooms"] as? String {
-            roomName = name
-        }
     }
+    
+    
     
 }

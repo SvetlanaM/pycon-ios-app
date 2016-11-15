@@ -1,39 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="DbS-j8-Zf8">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="DbS-j8-Zf8">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--PyCon CZ 2016-->
+        <!--Talks View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="TalksViewController" customModule="PyCon_CZ_2016" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TalksViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" customClass="TalksViewController" customModule="PyCon_CZ_2016" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="64" width="414" height="672"/>
+                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bUQ-3u-sn3">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="488"/>
                                 <subviews>
                                     <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="L13-rD-IXk">
+                                        <rect key="frame" x="20" y="27" width="335" height="29"/>
                                         <segments>
                                             <segment title="Main"/>
                                             <segment title="Right"/>
-                                            <segment title="Left"/>
-                                            <segment title="A112"/>
-                                            <segment title="A113"/>
+                                            <segment title=""/>
                                         </segments>
                                         <connections>
                                             <action selector="changeRoom:" destination="BYZ-38-t0r" eventType="valueChanged" id="vO7-cb-Ro0"/>
                                         </connections>
                                     </segmentedControl>
                                 </subviews>
-                                <color key="backgroundColor" red="0.59999999999999998" green="0.60392156860000001" blue="0.90196078430000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="L13-rD-IXk" firstAttribute="leading" secondItem="bUQ-3u-sn3" secondAttribute="leading" constant="20" id="28f-3I-yPA"/>
@@ -42,7 +44,6 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="bUQ-3u-sn3" secondAttribute="trailing" id="2A0-Ct-jNm"/>
                             <constraint firstItem="bUQ-3u-sn3" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="4y1-Qb-xPY"/>
@@ -62,7 +63,7 @@
                             </mask>
                         </variation>
                     </view>
-                    <navigationItem key="navigationItem" title="PyCon CZ 2016" id="gLx-KK-bP2">
+                    <navigationItem key="navigationItem" id="gLx-KK-bP2">
                         <barButtonItem key="backBarButtonItem" id="aR0-mv-KcZ">
                             <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </barButtonItem>
@@ -74,12 +75,14 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="mainView" destination="8bC-Xf-vdC" id="CPp-zp-bHF"/>
                         <outlet property="segmentControl" destination="L13-rD-IXk" id="gt5-yM-0yR"/>
+                        <outlet property="segmentView" destination="bUQ-3u-sn3" id="59Z-T5-iL4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1091.304347826087" y="238.85869565217394"/>
+            <point key="canvasLocation" x="1298" y="239"/>
         </scene>
         <!--Talk Detail View Controller-->
         <scene sceneID="2La-gF-OlY">
@@ -87,24 +90,23 @@
                 <viewController id="K0d-T0-c86" customClass="TalkDetailViewController" customModule="PyCon_CZ_2016" customModuleProvider="target" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yC0-8d-Fff" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1800" y="239"/>
+            <point key="canvasLocation" x="2415" y="239"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="MvN-pe-Cac">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="DbS-j8-Zf8" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="knn-QV-Xsl">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="knn-QV-Xsl">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" red="0.59999999999999998" green="0.60392156862745094" blue="0.90196078431372551" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="FtD-e5-OyS"/>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="3TT-86-ESq"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="E4W-cY-aEv" userLabel="First Responder" sceneMemberID="firstResponder"/>

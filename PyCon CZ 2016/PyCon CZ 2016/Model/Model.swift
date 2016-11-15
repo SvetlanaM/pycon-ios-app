@@ -13,13 +13,96 @@ import FirebaseDatabase
 class DataManager {
     
     static let sharedInstance = DataManager()
-    var ref : FIRDatabaseReference?
+    var dbRef : FIRDatabaseReference!
     var rooms = [Room]()
     var talks = [Talk]()
-    
-    let mainRef = FIRDatabase.database().reference()
-    
-    //editable pycon item
+    var config = Config(key: "", facebook: "", twitter: "", pyconName: "", pyconColor: UIColor(), pyconLogo: UIImage())
     
     
-}
+    func setConfigDB(configData : (Config -> Void)) {
+        self.dbRef = FIRDatabase.database().reference()
+        
+        //editable pycon item
+        let pyconRef = dbRef.child("pycon_zim2016")
+        let dbMain = pyconRef.child("main")
+        let dbConfig = dbMain.child("config")
+        dbConfig.observeEventType(.Value, withBlock: {( snapshot:FIRDataSnapshot) in
+            let configObject = Config(snapshot: snapshot as! FIRDataSnapshot)
+            self.config = configObject
+            configData(configObject)
+        })
+        {(error : NSError) in
+            print(error.description)
+        }
+        
+    }
+    
+    func setDB(roomData : ([Room] -> Void)) {
+        self.dbRef = FIRDatabase.database().reference()
+        
+        
+        //editable pycon item
+        let pyconRef = dbRef.child("pycon_zim2016")
+        let roomConfig = pyconRef.child("rooms")
+        roomConfig.observeEventType(.Value, withBlock: {( snapshot:FIRDataSnapshot) in
+            for room in snapshot.children {
+                
+                let roomObject = Room(snapshot: room as! FIRDataSnapshot)
+                self.rooms.append(roomObject)
+                roomData(self.rooms)
+                
+                
+            }
+        }) {(error : NSError) in
+            print(error.description)
+            }
+        }
+    
+    func setTalkDB(rooms : [Room], talkData : ([Talk] -> Void)) {
+        self.dbRef = FIRDatabase.database().reference()
+        
+        //editable pycon item
+        let pyconRef = dbRef.child("pycon_zim2016")
+        let roomConfig = pyconRef.child("rooms")
+        
+        
+        for room in rooms {
+            
+            if let roomName = room.key {
+                
+                let talkConfig = roomConfig.child(roomName)
+                talkConfig.observeEventType(.Value, withBlock: {( snapshot:FIRDataSnapshot) in
+                    
+                    
+                    for talk in snapshot.children {
+                        
+                        let talkObject = Talk(snapshot: talk as! FIRDataSnapshot)
+                        self.talks.append(talkObject)
+                        talkData(self.talks)
+                        room.talks.append(talkObject)
+                        
+                        
+                    }
+                    
+                    
+                    
+                })
+                {(error : NSError) in
+                    print(error.description)
+                }
+            }
+            
+            
+           
+        }
+        
+        
+        
+    }
+    
+    
+    
+    }
+
+
+

@@ -10,22 +10,35 @@ import UIKit
 import Firebase
 import Fabric
 import TwitterKit
+import SVProgressHUD
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
-
+    var splashTimer:NSTimer?
+    var splashImageView:UIImageView?
+    var controller : UIViewController?
+    
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+        
+        
         // Override point for customization after application launch.
         FIRApp.configure()
         Fabric.with([Twitter.self])
         UIApplication.sharedApplication().statusBarStyle = .LightContent
+        
         FIRDatabase.database().persistenceEnabled = true
-
+      
+        
+        controller = TalksViewController()
+    
+        
+        
         return true
     }
+    
+    
 
     func applicationWillResignActive(application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
@@ -47,6 +60,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillTerminate(application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+        
     }
 
 

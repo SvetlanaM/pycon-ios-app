@@ -7,9 +7,9 @@
 	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
 	<string>ca-app-pub-3940256099942544/4411468910</string>
 	<key>CLIENT_ID</key>
-	<string>299025362856-0u6va84465njujb6tt8gbq8ub0dagci4.apps.googleusercontent.com</string>
+	<string>299025362856-nf9jor8chujpsmu38btr54is1boti6i7.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.299025362856-0u6va84465njujb6tt8gbq8ub0dagci4</string>
+	<string>com.googleusercontent.apps.299025362856-nf9jor8chujpsmu38btr54is1boti6i7</string>
 	<key>API_KEY</key>
 	<string>AIzaSyDYbcQ2zArsz1TX4nRdEJojGwxWhSgvfrQ</string>
 	<key>GCM_SENDER_ID</key>
@@ -17,7 +17,7 @@
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.margetova.PyCon-CZ-2016</string>
+	<string>com.margetova.PyCon-ZIM-2016</string>
 	<key>PROJECT_ID</key>
 	<string>pycon-630b8</string>
 	<key>STORAGE_BUCKET</key>
@@ -33,7 +33,7 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true/>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:299025362856:ios:d4b3baea60843701</string>
+	<string>1:299025362856:ios:b6f726f0540b4fc1</string>
 	<key>DATABASE_URL</key>
 	<string>https://pycon-630b8.firebaseio.com</string>
 </dict>

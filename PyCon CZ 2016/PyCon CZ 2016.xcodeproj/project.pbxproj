@@ -19,8 +19,8 @@
 		DC7DF1B91DB562620045A483 /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DC7DF1B41DB562620045A483 /* Roboto-Medium.ttf */; };
 		DC7DF1BB1DB562620045A483 /* Roboto-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DC7DF1B61DB562620045A483 /* Roboto-Thin.ttf */; };
 		DC8AF3FD1DB3CA430093D7D7 /* TalkDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC8AF3FC1DB3CA430093D7D7 /* TalkDetailViewController.swift */; };
+		DCB8FC491DDA4A56004DB889 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DCB8FC481DDA4A56004DB889 /* GoogleService-Info.plist */; };
 		DCF3D2661DB10B7C00BBEA5F /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCF3D2651DB10B7C00BBEA5F /* Model.swift */; };
-		DCF3D2681DB110A600BBEA5F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DCF3D2671DB110A600BBEA5F /* GoogleService-Info.plist */; };
 		DCF841011DD7341D007AD042 /* Talk.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCF841001DD7341D007AD042 /* Talk.swift */; };
 		DCF841031DD73A00007AD042 /* Room.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCF841021DD73A00007AD042 /* Room.swift */; };
 		DCF841051DD740E3007AD042 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCF841041DD740E3007AD042 /* Config.swift */; };
@@ -43,8 +43,8 @@
 		DC7DF1B41DB562620045A483 /* Roboto-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Medium.ttf"; sourceTree = "<group>"; };
 		DC7DF1B61DB562620045A483 /* Roboto-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Thin.ttf"; sourceTree = "<group>"; };
 		DC8AF3FC1DB3CA430093D7D7 /* TalkDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TalkDetailViewController.swift; path = Controllers/TalkDetailViewController.swift; sourceTree = "<group>"; };
+		DCB8FC481DDA4A56004DB889 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		DCF3D2651DB10B7C00BBEA5F /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Model.swift; path = Model/Model.swift; sourceTree = "<group>"; };
-		DCF3D2671DB110A600BBEA5F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		DCF841001DD7341D007AD042 /* Talk.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Talk.swift; path = Model/Talk.swift; sourceTree = "<group>"; };
 		DCF841021DD73A00007AD042 /* Room.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Room.swift; path = Model/Room.swift; sourceTree = "<group>"; };
 		DCF841041DD740E3007AD042 /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Config.swift; path = Model/Config.swift; sourceTree = "<group>"; };
@@ -118,7 +118,7 @@
 				DC5BA51F1DAD001B00A71450 /* Assets.xcassets */,
 				DC7DF1A71DB55E820045A483 /* Font */,
 				DC5BA5211DAD001B00A71450 /* LaunchScreen.storyboard */,
-				DCF3D2671DB110A600BBEA5F /* GoogleService-Info.plist */,
+				DCB8FC481DDA4A56004DB889 /* GoogleService-Info.plist */,
 				DC5BA5241DAD001B00A71450 /* Info.plist */,
 			);
 			path = "PyCon CZ 2016";
@@ -191,6 +191,7 @@
 						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = D3U95MADM7;
 						LastSwiftMigration = 0800;
+						ProvisioningStyle = Automatic;
 					};
 				};
 			};
@@ -218,12 +219,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				DC5BA5231DAD001B00A71450 /* LaunchScreen.storyboard in Resources */,
-				DCF3D2681DB110A600BBEA5F /* GoogleService-Info.plist in Resources */,
 				DC7DF1B81DB562620045A483 /* Roboto-Light.ttf in Resources */,
 				DC7DF1B91DB562620045A483 /* Roboto-Medium.ttf in Resources */,
 				DC5BA5201DAD001B00A71450 /* Assets.xcassets in Resources */,
 				DC5BA51E1DAD001B00A71450 /* Main.storyboard in Resources */,
 				DC7DF1BB1DB562620045A483 /* Roboto-Thin.ttf in Resources */,
+				DCB8FC491DDA4A56004DB889 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -421,7 +422,7 @@
 				DEVELOPMENT_TEAM = D3U95MADM7;
 				INFOPLIST_FILE = "PyCon CZ 2016/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.margetova.PyCon-CZ-2016";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.margetova.PyCon-ZIM-2016";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 2.3;
 			};
@@ -437,7 +438,7 @@
 				DEVELOPMENT_TEAM = D3U95MADM7;
 				INFOPLIST_FILE = "PyCon CZ 2016/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.margetova.PyCon-CZ-2016";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.margetova.PyCon-ZIM-2016";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 2.3;
 			};

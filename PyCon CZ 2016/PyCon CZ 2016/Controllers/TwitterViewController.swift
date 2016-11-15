@@ -18,13 +18,11 @@ class TwitterViewController: TWTRTimelineViewController {
         self.view.backgroundColor = UIColor(red: 247/255.0, green: 249/255.0, blue: 252/255.0, alpha: 1.0)
         
         let client = TWTRAPIClient()
-        
-
     }
     
     convenience init() {
         let client = TWTRAPIClient()
-        let dataSource = TWTRSearchTimelineDataSource(searchQuery: "#pyconcz", APIClient: client)
+        let dataSource = TWTRSearchTimelineDataSource(searchQuery: DataManager.sharedInstance.config.twitter!, APIClient: client)
         self.init(dataSource: dataSource)
 
         

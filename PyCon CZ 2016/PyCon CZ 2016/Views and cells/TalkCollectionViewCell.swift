@@ -49,7 +49,7 @@ class TalkCollectionViewCell: UICollectionViewCell {
         let speakerFrame = CGRectMake(90, -15, (self.frame.size.width)-110, 200)
         speakerLabel = UILabel(frame: speakerFrame)
         speakerLabel.font = UIFont.systemFontOfSize(14.0)
-        speakerLabel.textColor = UIColor(red: 153/255.0, green: 154/255.0, blue: 230/255.0, alpha: 1.0)
+        speakerLabel.textColor = DataManager.sharedInstance.config.pyconColor
         speakerLabel.textAlignment = .Left
         speakerLabel.numberOfLines = 1
         speakerLabel.lineBreakMode = .ByWordWrapping

@@ -11,72 +11,132 @@ import FirebaseDatabase
 import Social
 import SVProgressHUD
 
+extension UISegmentedControl {
+    func replaceSegments(segments: Array<Room>) {
+        self.removeAllSegments()
+        for segment in segments {
+            self.insertSegmentWithTitle(segment.key, atIndex: self.numberOfSegments, animated: false)
+        }
+    }
+}
+
 class TalksViewController: UIViewController, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
     
-    var ref : FIRDatabaseReference!
-    
     var talks = [Talk]()
+    var rooms = [Room]()
+    var twitter : String?
+    var mainColor : UIColor?
+    
+    @IBOutlet weak var segmentView: UIView!
     var collection : UICollectionView?
     var infoLabel : UILabel?
+    var imageV : UIImageView?
     
-    var rooms = [Room]()
+    @IBOutlet var mainView: UIView!
 
     @IBOutlet weak var segmentControl: UISegmentedControl!
+    
+    
+    
     override func viewDidLoad() {
         
         super.viewDidLoad()
-        SVProgressHUD.show()
-        
-        let rootRef = FIRDatabase.database().reference()
-        let itemsRef = rootRef.child("pyconcz2016")
-        
-        let roomsRef = itemsRef.child("rooms")
-        
-        print (roomsRef.key)
         
         
         
+        mainView.backgroundColor = .whiteColor()
+        self.imageV = UIImageView(frame:CGRectMake((self.view.frame.width/2)-100, ((self.view.frame.height-80)/2)-100, 200, 200))
         
-        delay(4) {
-            if self.talks.isEmpty {
-                SVProgressHUD.dismiss()
-                let alert = UIAlertController(title: "Network Error", message: "No data connection. Please connect via your data or via Wifi. But you still have offline access to your data.", preferredStyle: UIAlertControllerStyle.Alert)
-                alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
-                self.presentViewController(alert, animated: true, completion: nil)
-                self.ref = FIRDatabase.database().reference().child("d105")
-                
-                self.startObservingDB()
-                self.ref.keepSynced(true)
-            }
+        
+        self.imageV?.image = UIImage(named: "progress")
+        self.imageV?.contentMode = .ScaleAspectFit
+        self.imageV?.clipsToBounds = true
+        self.view.addSubview(imageV ?? UIImageView())
+        
+        self.segmentControl.hidden = true
+        
+        
+        
+        
+        self.rooms = []
+        
+        
+        
+        DataManager.sharedInstance.setConfigDB({
+            
+            (data) -> Void in
+            SVProgressHUD.show()
+            self.navigationController?.navigationBar.barTintColor = DataManager.sharedInstance.config.pyconColor
+            self.navigationItem.title = DataManager.sharedInstance.config.pyconName
+        self.segmentView.backgroundColor = DataManager.sharedInstance.config.pyconColor
+        self.twitter = DataManager.sharedInstance.config.twitter
+        self.mainColor = DataManager.sharedInstance.config.pyconColor
+            // Layout setup
+            let layout = UICollectionViewFlowLayout()
+            layout.sectionInset = UIEdgeInsets(top: 20, left: 0, bottom: 170, right: 0)
+            self.collection = UICollectionView(frame: CGRectMake(0, 80, self.view.frame.width, self.view.frame.height), collectionViewLayout: layout)
+            self.collection?.delegate = self
+            self.collection?.dataSource = self
+            self.collection?.registerClass(TalkCollectionViewCell.self, forCellWithReuseIdentifier: "cell")
+            self.view.addSubview(self.collection!)
+            self.collection?.backgroundColor = UIColor(red: 246/255.0, green: 248/255.0, blue: 251/255.0, alpha: 1.0)
+            
+            self.segmentControl.hidden = false
+            
+            
+            })
+        
+        DataManager.sharedInstance.setDB { (roomData) in
+            self.rooms = DataManager.sharedInstance.rooms
+            self.segmentControl.replaceSegments(self.rooms)
+            
         }
         
         
+        delay(0.5) {
+            DataManager.sharedInstance.setTalkDB(self.rooms, talkData: { (talkData) in
+                self.getInitialData()
+                SVProgressHUD.dismiss()
+                
+
+                
+            })
+        }
         
+            }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(false)
+        delay(1.5) {self.isConnected { (state) in
+            
+            if state == false {
+                let alert = UIAlertController(title: "Network Error", message: "Worse data connection. You have local data still accesible.", preferredStyle: UIAlertControllerStyle.Alert)
+                alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+                self.presentViewController(alert, animated: true, completion: nil)
+                
+            }
+            }
+        }
+    }
+    
+    func isConnected(state : (Bool -> Void)) {
         let connectedRef = FIRDatabase.database().referenceWithPath(".info/connected")
         connectedRef.observeEventType(.Value, withBlock: { snapshot in
             if let connected = snapshot.value as? Bool where connected {
                 if connected == true {
                     
-                    self.changeRoom(UISegmentedControl)
+                    state(true)
                     
-                     }
+                }
             } else {
                 
-                print ("")
+                    state(false)
                 
             }
         })
-        
-        // Layout setup
-        let layout = UICollectionViewFlowLayout()
-        layout.sectionInset = UIEdgeInsets(top: 20, left: 0, bottom: 170, right: 0)
-        self.collection = UICollectionView(frame: CGRectMake(0, 80, self.view.frame.width, self.view.frame.height), collectionViewLayout: layout)
-        self.collection?.delegate = self
-        self.collection?.dataSource = self
-        self.collection?.registerClass(TalkCollectionViewCell.self, forCellWithReuseIdentifier: "cell")
-        self.view.addSubview(self.collection!)
-        self.collection?.backgroundColor = UIColor(red: 246/255.0, green: 248/255.0, blue: 251/255.0, alpha: 1.0)
     }
+    
+
     
     func delay(delay:Double, closure:()->()) {
         dispatch_after(
@@ -85,12 +145,14 @@ class TalksViewController: UIViewController, UICollectionViewDelegateFlowLayout,
                 Int64(delay * Double(NSEC_PER_SEC))
             ),
             dispatch_get_main_queue(), closure)
-        }
+    }
     
     @IBAction func shareOnTwitter(sender: UIBarButtonItem) {
         if SLComposeViewController.isAvailableForServiceType(SLServiceTypeTwitter){
             let twitterSheet:SLComposeViewController = SLComposeViewController(forServiceType: SLServiceTypeTwitter)
-            twitterSheet.setInitialText("#pyconcz")
+            if let twitterName = self.twitter {
+                twitterSheet.setInitialText(twitterName)
+            }
             self.presentViewController(twitterSheet, animated: true, completion: nil)
         } else {
             let alert = UIAlertController(title: "Accounts", message: "Please login to a Twitter account to share.", preferredStyle: UIAlertControllerStyle.Alert)
@@ -99,39 +161,43 @@ class TalksViewController: UIViewController, UICollectionViewDelegateFlowLayout,
         }
     }
     
-    @IBAction func changeRoom(sender: AnyObject) {
-        if (segmentControl.selectedSegmentIndex == 0) {
-            
-            ref = FIRDatabase.database().reference().child("d105")
-            
-            startObservingDB()
-            ref.keepSynced(true)
-        } else if (segmentControl.selectedSegmentIndex == 1) {
-            SVProgressHUD.show()
-            ref = FIRDatabase.database().reference().child("d0206")
-            
-            startObservingDB()
-            ref.keepSynced(true)
-        } else if (segmentControl.selectedSegmentIndex == 2) {
-            SVProgressHUD.show()
-            ref = FIRDatabase.database().reference().child("d0207")
-            
-            startObservingDB()
-            ref.keepSynced(true)
-        } else if (segmentControl.selectedSegmentIndex == 3) {
-            ref = FIRDatabase.database().reference().child("a112")
-            SVProgressHUD.show()
-            
-            startObservingDB()
-            ref.keepSynced(true)
-        } else if (segmentControl.selectedSegmentIndex == 4) {
-            ref = FIRDatabase.database().reference().child("a113")
-            SVProgressHUD.show()
-            
-            startObservingDB()
-            ref.keepSynced(true)
+    func getRoom(key : String) -> Room {
+        
+        for i in self.rooms {
+            if i.key == key {
+                return i
+            }
+        }
+        return Room(key: key)
+    }
+    
+    func getInitialData() {
+        var title = segmentControl.titleForSegmentAtIndex(0)
+        if let titleU = title {
+            var room = getRoom(titleU)
+            self.talks = []
+            self.talks = room.talks
         }
         
+        self.collection?.reloadData()
+    }
+    
+    @IBAction func changeRoom(sender: AnyObject) {
+        var sCount = segmentControl.numberOfSegments
+        for i in 0..<sCount + 1 {
+            if (segmentControl.selectedSegmentIndex == i) {
+                var title = segmentControl.titleForSegmentAtIndex(i)
+                if let titleU = title {
+                    var room = getRoom(titleU)
+                    self.talks = []
+                    self.talks = room.talks
+                }
+                self.collection?.reloadData()
+                
+            
+            }
+            
+        }
     }
     
     // collection view cell setup
@@ -159,6 +225,7 @@ class TalksViewController: UIViewController, UICollectionViewDelegateFlowLayout,
     }
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        
         
             return talks.count
         
@@ -192,50 +259,4 @@ class TalksViewController: UIViewController, UICollectionViewDelegateFlowLayout,
                 self.navigationController?.showViewController(vc, sender: self)
             }
         }
-    
-    
-    
-    func startObservingDB() {
-        ref.observeEventType(.Value, withBlock: {( snapshot:FIRDataSnapshot) in
-            
-            
-            var newTalks = [Talk]()
-            
-            self.talks = []
-            
-            for talk in snapshot.children {
-                let talkObject = Talk(snapshot: talk as! FIRDataSnapshot)
-                newTalks.append(talkObject)
-            }
-            
-            for talk in newTalks {
-                
-                if talk.active == true {
-                   self.talks.append(talk)
-                }
-            }
-            
-            if self.talks.isEmpty {
-                SVProgressHUD.dismiss()
-            }
-            
-            self.collection?.reloadData()
-            SVProgressHUD.dismiss()
-            
-            
-            
-            
-            
-
-            
-        }) {(error : NSError) in
-            print(error.description)
-        }
-    }
-    
-    
-    
-    
-    
-
 }
