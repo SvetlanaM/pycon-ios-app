@@ -29,9 +29,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UIApplication.sharedApplication().statusBarStyle = .LightContent
         
         FIRDatabase.database().persistenceEnabled = true
-      
-        
-        controller = TalksViewController()
     
         
         

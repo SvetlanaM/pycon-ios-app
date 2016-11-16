@@ -90,24 +90,26 @@ class TalksViewController: UIViewController, UICollectionViewDelegateFlowLayout,
             self.rooms = DataManager.sharedInstance.rooms
             self.segmentControl.replaceSegments(self.rooms)
             
+            self.delay(0.5) {
+                DataManager.sharedInstance.setTalkDB(self.rooms, talkData: { (talkData) in
+                    self.getInitialData()
+                    SVProgressHUD.dismiss()
+                    
+                    
+                    
+                })
+            }
+            
         }
         
         
-        delay(0.5) {
-            DataManager.sharedInstance.setTalkDB(self.rooms, talkData: { (talkData) in
-                self.getInitialData()
-                SVProgressHUD.dismiss()
-                
-
-                
-            })
-        }
+        
         
             }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(false)
-        delay(1.5) {self.isConnected { (state) in
+        delay(3.5) {self.isConnected { (state) in
             
             if state == false {
                 let alert = UIAlertController(title: "Network Error", message: "Worse data connection. You have local data still accesible.", preferredStyle: UIAlertControllerStyle.Alert)
