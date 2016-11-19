@@ -191,7 +191,7 @@
 						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = D3U95MADM7;
 						LastSwiftMigration = 0800;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 					};
 				};
 			};
@@ -418,12 +418,14 @@
 			baseConfigurationReference = 3B670946D7BE63FAA24C1381 /* Pods-PyCon CZ 2016.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				DEVELOPMENT_TEAM = D3U95MADM7;
 				INFOPLIST_FILE = "PyCon CZ 2016/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.margetova.PyCon-ZIM-2016";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "d52441a8-2444-4f92-99db-c1245b5a6c20";
+				PROVISIONING_PROFILE_SPECIFIER = "PyCon ZIM";
 				SWIFT_VERSION = 2.3;
 			};
 			name = Debug;
@@ -434,12 +436,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				DEVELOPMENT_TEAM = D3U95MADM7;
 				INFOPLIST_FILE = "PyCon CZ 2016/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.margetova.PyCon-ZIM-2016";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "d52441a8-2444-4f92-99db-c1245b5a6c20";
+				PROVISIONING_PROFILE_SPECIFIER = "PyCon ZIM";
 				SWIFT_VERSION = 2.3;
 			};
 			name = Release;

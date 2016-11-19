@@ -89,26 +89,12 @@ class TalksViewController: UIViewController, UICollectionViewDelegateFlowLayout,
         DataManager.sharedInstance.setDB { (roomData) in
             self.rooms = DataManager.sharedInstance.rooms
             self.segmentControl.replaceSegments(self.rooms)
-            
-            self.delay(0.5) {
-                DataManager.sharedInstance.setTalkDB(self.rooms, talkData: { (talkData) in
-                    self.getInitialData()
-                    SVProgressHUD.dismiss()
-                    
-                    
-                    
-                })
+            DataManager.sharedInstance.setTalkDB(roomData, talkData: { (talkData) in
+                self.getInitialData()
+                SVProgressHUD.dismiss()
+            })
             }
-            
-        }
         
-        
-        
-        
-            }
-    
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(false)
         delay(3.5) {self.isConnected { (state) in
             
             if state == false {
@@ -119,7 +105,8 @@ class TalksViewController: UIViewController, UICollectionViewDelegateFlowLayout,
             }
             }
         }
-    }
+        }
+    
     
     func isConnected(state : (Bool -> Void)) {
         let connectedRef = FIRDatabase.database().referenceWithPath(".info/connected")
@@ -182,6 +169,7 @@ class TalksViewController: UIViewController, UICollectionViewDelegateFlowLayout,
         }
         
         self.collection?.reloadData()
+        SVProgressHUD.dismiss()
     }
     
     @IBAction func changeRoom(sender: AnyObject) {

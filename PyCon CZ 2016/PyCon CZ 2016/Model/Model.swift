@@ -37,7 +37,7 @@ class DataManager {
         
     }
     
-    func setDB(roomData : ([Room] -> Void)) {
+    func setDB(roomData : (Room -> Void)) {
         self.dbRef = FIRDatabase.database().reference()
         
         
@@ -49,7 +49,7 @@ class DataManager {
                 
                 let roomObject = Room(snapshot: room as! FIRDataSnapshot)
                 self.rooms.append(roomObject)
-                roomData(self.rooms)
+                roomData(roomObject)
                 
                 
             }
@@ -58,15 +58,14 @@ class DataManager {
             }
         }
     
-    func setTalkDB(rooms : [Room], talkData : ([Talk] -> Void)) {
+    func setTalkDB(room : Room, talkData : ([Talk] -> Void)) {
         self.dbRef = FIRDatabase.database().reference()
         
         //editable pycon item
         let pyconRef = dbRef.child("pycon_zim2016")
         let roomConfig = pyconRef.child("rooms")
-        
-        
-        for room in rooms {
+
+            
             
             if let roomName = room.key {
                 
@@ -78,7 +77,7 @@ class DataManager {
                         
                         let talkObject = Talk(snapshot: talk as! FIRDataSnapshot)
                         self.talks.append(talkObject)
-                        talkData(self.talks)
+                        talkData([talkObject])
                         room.talks.append(talkObject)
                         
                         
@@ -102,7 +101,7 @@ class DataManager {
     
     
     
-    }
+    
 
 
 
