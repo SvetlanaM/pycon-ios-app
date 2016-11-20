@@ -58,7 +58,6 @@ class TalksViewController: UIViewController, UICollectionViewDelegateFlowLayout,
         
         
         
-        self.rooms = []
         
         
         
@@ -86,14 +85,17 @@ class TalksViewController: UIViewController, UICollectionViewDelegateFlowLayout,
             
             })
         
+        
         DataManager.sharedInstance.setDB { (roomData) in
-            self.rooms = DataManager.sharedInstance.rooms
-            self.segmentControl.replaceSegments(self.rooms)
+            
+            
+            self.segmentControl.replaceSegments(DataManager.sharedInstance.rooms)
             DataManager.sharedInstance.setTalkDB(roomData, talkData: { (talkData) in
                 self.getInitialData()
                 SVProgressHUD.dismiss()
             })
             }
+        
         
         delay(3.5) {self.isConnected { (state) in
             
@@ -152,7 +154,7 @@ class TalksViewController: UIViewController, UICollectionViewDelegateFlowLayout,
     
     func getRoom(key : String) -> Room {
         
-        for i in self.rooms {
+        for i in DataManager.sharedInstance.rooms {
             if i.key == key {
                 return i
             }
@@ -162,10 +164,14 @@ class TalksViewController: UIViewController, UICollectionViewDelegateFlowLayout,
     
     func getInitialData() {
         var title = segmentControl.titleForSegmentAtIndex(0)
+        
+        
         if let titleU = title {
             var room = getRoom(titleU)
+            print (room.talks.count)
             self.talks = []
             self.talks = room.talks
+            
         }
         
         self.collection?.reloadData()

@@ -45,6 +45,7 @@ class DataManager {
         let pyconRef = dbRef.child("pycon_zim2016")
         let roomConfig = pyconRef.child("rooms")
         roomConfig.observeEventType(.Value, withBlock: {( snapshot:FIRDataSnapshot) in
+            self.rooms = []
             for room in snapshot.children {
                 
                 let roomObject = Room(snapshot: room as! FIRDataSnapshot)
