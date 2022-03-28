@@ -18,7 +18,6 @@ class DataManager {
     var talks = [Talk]()
     var config = Config(key: "", facebook: "", twitter: "", pyconName: "", pyconColor: UIColor(), pyconLogo: UIImage())
     
-    
     func setConfigDB(configData : (Config -> Void)) {
         self.dbRef = FIRDatabase.database().reference()
         
@@ -32,30 +31,23 @@ class DataManager {
             configData(configObject)
         })
         {(error : NSError) in
-            print(error.description)
         }
-        
     }
     
     func setDB(roomData : (Room -> Void)) {
         self.dbRef = FIRDatabase.database().reference()
-        
-        
+    
         //editable pycon item
         let pyconRef = dbRef.child("pycon_zim2016")
         let roomConfig = pyconRef.child("rooms")
         roomConfig.observeEventType(.Value, withBlock: {( snapshot:FIRDataSnapshot) in
             self.rooms = []
-            for room in snapshot.children {
-                
+            for room in snapshot.children { 
                 let roomObject = Room(snapshot: room as! FIRDataSnapshot)
                 self.rooms.append(roomObject)
                 roomData(roomObject)
-                
-                
             }
         }) {(error : NSError) in
-            print(error.description)
             }
         }
     
@@ -65,39 +57,20 @@ class DataManager {
         //editable pycon item
         let pyconRef = dbRef.child("pycon_zim2016")
         let roomConfig = pyconRef.child("rooms")
-
-            
-            
-            if let roomName = room.key {
-                
+            if let roomName = room.key { 
                 let talkConfig = roomConfig.child(roomName)
                 talkConfig.observeEventType(.Value, withBlock: {( snapshot:FIRDataSnapshot) in
-                    
-                    
-                    for talk in snapshot.children {
-                        
+                    for talk in snapshot.children { 
                         let talkObject = Talk(snapshot: talk as! FIRDataSnapshot)
                         self.talks.append(talkObject)
                         talkData([talkObject])
-                        room.talks.append(talkObject)
-                        
-                        
+                        room.talks.append(talkObject) 
                     }
-                    
-                    
-                    
                 })
                 {(error : NSError) in
-                    print(error.description)
                 }
             }
-            
-            
-           
         }
-        
-        
-        
     }
     
     

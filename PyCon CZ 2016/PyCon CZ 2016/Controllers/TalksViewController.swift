@@ -33,36 +33,19 @@ class TalksViewController: UIViewController, UICollectionViewDelegateFlowLayout,
     var imageV : UIImageView?
     
     @IBOutlet var mainView: UIView!
-
     @IBOutlet weak var segmentControl: UISegmentedControl!
     
-    
-    
-    override func viewDidLoad() {
-        
+    override func viewDidLoad() {     
         super.viewDidLoad()
-        
-        
-        
         mainView.backgroundColor = .whiteColor()
         self.imageV = UIImageView(frame:CGRectMake((self.view.frame.width/2)-100, ((self.view.frame.height-80)/2)-100, 200, 200))
-        
-        
         self.imageV?.image = UIImage(named: "progress")
         self.imageV?.contentMode = .ScaleAspectFit
         self.imageV?.clipsToBounds = true
         self.view.addSubview(imageV ?? UIImageView())
-        
         self.segmentControl.hidden = true
-        
-        
-        
-        
-        
-        
-        
-        DataManager.sharedInstance.setConfigDB({
-            
+
+        DataManager.sharedInstance.setConfigDB({       
             (data) -> Void in
             SVProgressHUD.show()
             self.navigationController?.navigationBar.barTintColor = DataManager.sharedInstance.config.pyconColor
@@ -79,50 +62,37 @@ class TalksViewController: UIViewController, UICollectionViewDelegateFlowLayout,
             self.collection?.registerClass(TalkCollectionViewCell.self, forCellWithReuseIdentifier: "cell")
             self.view.addSubview(self.collection!)
             self.collection?.backgroundColor = UIColor(red: 246/255.0, green: 248/255.0, blue: 251/255.0, alpha: 1.0)
-            
             self.segmentControl.hidden = false
-            
-            
             })
         
-        
         DataManager.sharedInstance.setDB { (roomData) in
-            
-            
             self.segmentControl.replaceSegments(DataManager.sharedInstance.rooms)
             DataManager.sharedInstance.setTalkDB(roomData, talkData: { (talkData) in
                 self.getInitialData()
                 SVProgressHUD.dismiss()
             })
-            }
-        
+        }
         
         delay(3.5) {self.isConnected { (state) in
-            
             if state == false {
                 let alert = UIAlertController(title: "Network Error", message: "Worse data connection. You have local data still accesible.", preferredStyle: UIAlertControllerStyle.Alert)
                 alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
-                self.presentViewController(alert, animated: true, completion: nil)
-                
-            }
+                self.presentViewController(alert, animated: true, completion: nil)    
+                }
             }
         }
-        }
+    }
     
     
     func isConnected(state : (Bool -> Void)) {
         let connectedRef = FIRDatabase.database().referenceWithPath(".info/connected")
         connectedRef.observeEventType(.Value, withBlock: { snapshot in
             if let connected = snapshot.value as? Bool where connected {
-                if connected == true {
-                    
-                    state(true)
-                    
+                if connected == true {                
+                    state(true)                 
                 }
-            } else {
-                
-                    state(false)
-                
+            } else {              
+                    state(false)               
             }
         })
     }
@@ -152,8 +122,7 @@ class TalksViewController: UIViewController, UICollectionViewDelegateFlowLayout,
         }
     }
     
-    func getRoom(key : String) -> Room {
-        
+    func getRoom(key : String) -> Room {     
         for i in DataManager.sharedInstance.rooms {
             if i.key == key {
                 return i
@@ -163,17 +132,12 @@ class TalksViewController: UIViewController, UICollectionViewDelegateFlowLayout,
     }
     
     func getInitialData() {
-        var title = segmentControl.titleForSegmentAtIndex(0)
-        
-        
+        var title = segmentControl.titleForSegmentAtIndex(0)  
         if let titleU = title {
             var room = getRoom(titleU)
-            print (room.talks.count)
             self.talks = []
-            self.talks = room.talks
-            
+            self.talks = room.talks   
         }
-        
         self.collection?.reloadData()
         SVProgressHUD.dismiss()
     }
@@ -189,8 +153,6 @@ class TalksViewController: UIViewController, UICollectionViewDelegateFlowLayout,
                     self.talks = room.talks
                 }
                 self.collection?.reloadData()
-                
-            
             }
             
         }
@@ -221,10 +183,7 @@ class TalksViewController: UIViewController, UICollectionViewDelegateFlowLayout,
     }
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        
-        
             return talks.count
-        
     }
     
     func collectionView(collectionView : UICollectionView, layout collectionViewLayout : UICollectionViewLayout, minimumInteritemSpacingForSectionAtIndex section : Int) -> CGFloat {
@@ -242,14 +201,10 @@ class TalksViewController: UIViewController, UICollectionViewDelegateFlowLayout,
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         
             let cell = collectionView.cellForItemAtIndexPath(indexPath)
-        
-        
             if talks[indexPath.row].type == "event" {
                 cell?.selected = false
             } else {
-                
                 cell?.selected = true
-                
                 let vc = TalkDetailViewController()
                 vc.talk = talks[indexPath.row]
                 self.navigationController?.showViewController(vc, sender: self)

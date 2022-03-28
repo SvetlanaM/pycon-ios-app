@@ -16,17 +16,9 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        let rootRef = FIRDatabase.database().reference()
-        print (rootRef.key)
-        
-        let itemsRef = rootRef.child("pycon-630b8")
-        print (itemsRef.key)
-        
-        let milkRef = itemsRef.child("a112")
-        print (milkRef.key)
-        
-        
-        // Do any additional setup after loading the view, typically from a nib.
+        let rootRef = FIRDatabase.database().reference()        
+        let itemsRef = rootRef.child("")   
+        let milkRef = itemsRef.child("")
     }
     
 

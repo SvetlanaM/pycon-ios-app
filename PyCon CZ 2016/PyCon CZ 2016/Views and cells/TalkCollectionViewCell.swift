@@ -15,7 +15,6 @@ class TalkCollectionViewCell: UICollectionViewCell {
     var speakerLabel : UILabel!
     var speakerBioLabel : UILabel!
     
-    
     required init(coder aDecoder : NSCoder) {
         super.init(coder: aDecoder)!
         
@@ -33,11 +32,9 @@ class TalkCollectionViewCell: UICollectionViewCell {
         let border = CALayer()
         border.backgroundColor = UIColor(red: 205/255.0, green: 209/255.0, blue: 213/255.0, alpha: 1.0).CGColor
         border.frame = CGRect(x: 75, y: 0, width: 0.5, height: dateFrame.height)
-        
         date.layer.addSublayer(border)
         date.lineBreakMode = .ByWordWrapping
         contentView.addSubview(date)
-        
         let titleFrame = CGRectMake(90, -100, (self.frame.size.width)-110, 300)
         title = UILabel(frame: titleFrame)
         title.font = UIFont.systemFontOfSize(16.0)
@@ -45,7 +42,6 @@ class TalkCollectionViewCell: UICollectionViewCell {
         title.textAlignment = .Left
         title.numberOfLines = 2
         contentView.addSubview(title)
-        
         let speakerFrame = CGRectMake(90, -15, (self.frame.size.width)-110, 200)
         speakerLabel = UILabel(frame: speakerFrame)
         speakerLabel.font = UIFont.systemFontOfSize(14.0)
@@ -54,7 +50,6 @@ class TalkCollectionViewCell: UICollectionViewCell {
         speakerLabel.numberOfLines = 1
         speakerLabel.lineBreakMode = .ByWordWrapping
         contentView.addSubview(speakerLabel)
-        
     }
     
     func configureCell(talks : Talk) {
@@ -68,8 +63,7 @@ class TalkCollectionViewCell: UICollectionViewCell {
         }
         title.text = talks.title
         speakerLabel.text = talks.speaker
-        setFontSize(title, type : talks.type ?? "")
-        
+        setFontSize(title, type : talks.type ?? "")  
     }
     
     func setFontSize(label : UILabel, type : String) {
@@ -81,5 +75,4 @@ class TalkCollectionViewCell: UICollectionViewCell {
             label.font = UIFont.systemFontOfSize(16.0)
         }
     }
-    
 }

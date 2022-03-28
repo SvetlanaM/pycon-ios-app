@@ -73,9 +73,7 @@ class Talk : NSObject {
             } else {
                 
                 avatar = UIImage(named: "speaker_avatar")
-
             }
-            
         }
         
         if let speakerBio = snapshot.value!["bio"] as? String {

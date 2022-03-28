@@ -24,7 +24,4 @@ class Room : NSObject {
         key = snapshot.key
         ref = snapshot.ref
     }
-    
-    
-    
 }

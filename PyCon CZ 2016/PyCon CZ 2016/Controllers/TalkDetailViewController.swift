@@ -14,7 +14,6 @@ class TalkDetailViewController: UIViewController {
     var contentView : UIView?
     var textView : UIView?
     var scrollView : UIScrollView?
-    
     var date : UILabel!
     var talkTitle : UILabel!
     var speakerLabel : UILabel!
@@ -27,24 +26,18 @@ class TalkDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
         navigationItem.title = talk?.title
         navigationController!.navigationBar.tintColor = UIColor.whiteColor()
         let twitterButton : UIBarButtonItem = UIBarButtonItem(image: UIImage(named: "twitter"), style: UIBarButtonItemStyle.Plain, target: self, action: #selector(TalkDetailViewController.sendTwitter(_:)))
-        
-        
         let timelineButton : UIBarButtonItem = UIBarButtonItem(image: UIImage(named: "hashtag"), style: UIBarButtonItemStyle.Plain, target: self, action: #selector(TalkDetailViewController.showTimeline(_:)))
         self.navigationItem.rightBarButtonItems = [twitterButton, timelineButton]
 
-        
         // View setup
         self.view = UIView(frame: CGRectMake(0, 0, self.view.frame.width, self.view.frame.height))
         self.view.backgroundColor = UIColor(red: 247/255.0, green: 249/255.0, blue: 252/255.0, alpha: 1.0)
         
         // Image setup
         self.imageV = UIImageView(frame : CGRectMake(0, (self.view.frame.height) - 200, self.view.frame.width, 200))
-        
-        
         self.imageV?.image = DataManager.sharedInstance.config.pyconLogo
         self.imageV?.contentMode = .ScaleAspectFill
         self.imageV?.clipsToBounds = true
@@ -65,18 +58,13 @@ class TalkDetailViewController: UIViewController {
         self.textView?.layer.shadowPath = UIBezierPath(roundedRect:self.textView!.bounds, cornerRadius:self.textView!.layer.cornerRadius).CGPath
         self.view.addSubview(self.textView ?? UIView())
         
-        
-        
         // Date setup
-        
-        
         speakerImage = UIImageView(image : talk?.avatar)
         let imageFrame = CGRectMake(18, 35, 65, 65)
         speakerImage?.frame = imageFrame
         speakerImage?.layer.cornerRadius = (speakerImage?.frame.height)!/2
         speakerImage?.clipsToBounds = true
-        speakerImage?.contentMode = UIViewContentMode.ScaleAspectFill
-        
+        speakerImage?.contentMode = UIViewContentMode.ScaleAspectFill      
         textView!.addSubview(speakerImage ?? UIImageView())
         
         // Title setup
@@ -107,7 +95,6 @@ class TalkDetailViewController: UIViewController {
         self.textView!.addSubview(showDetailLabel)
         
         // Theme setup
-        
         if let talkD = talk?.talkDescription {
             let talkDescFrame = heightForView(talkD)
         talkDescLabel = UILabel(frame: talkDescFrame)
@@ -116,8 +103,6 @@ class TalkDetailViewController: UIViewController {
         talkDescLabel.textAlignment = .Left
         talkDescLabel.numberOfLines = 0
         talkDescLabel.lineBreakMode = .ByWordWrapping
-        
-        
         let border = CALayer()
         border.backgroundColor = UIColor(red: 205/255.0, green: 209/255.0, blue: 213/255.0, alpha: 1.0).CGColor
         border.frame = CGRect(x: 5, y: -15, width: talkDescFrame.width-15, height: 0.5)
@@ -129,15 +114,12 @@ class TalkDetailViewController: UIViewController {
         scrollView.addSubview(speakerImage ?? UIImageView())
         scrollView.addSubview(self.talkDescLabel)
         scrollView.addSubview(talkTitle)
-        scrollView.addSubview(speakerLabel)
-        
+        scrollView.addSubview(speakerLabel)  
         scrollView.contentSize = CGSize(width: self.textView!.frame.width, height: self.talkDescLabel.frame.height + 160)
-        self.textView!.addSubview(scrollView)
-        
+        self.textView!.addSubview(scrollView)     
         talkTitle.text = talk?.title
         speakerLabel.text = talk?.speaker
-        talkDescLabel.text = talk?.talkDescription
-        
+        talkDescLabel.text = talk?.talkDescription     
     }
     
     func heightForView(text:String) -> CGRect {
@@ -147,8 +129,7 @@ class TalkDetailViewController: UIViewController {
         label.text = text
         label.font = UIFont.systemFontOfSize(16.0)
         label.sizeToFit()
-        return CGRectMake(20, 130, self.view!.frame.width-90, label.frame.height)
-        
+        return CGRectMake(20, 130, self.view!.frame.width-90, label.frame.height)      
     }
     
     func sendTwitter(sender : UIBarButtonItem) {
@@ -167,9 +148,4 @@ class TalkDetailViewController: UIViewController {
         let vc = TwitterViewController()
         self.navigationController?.showViewController(vc, sender: self)
     }
-    
-   
-
-    
-
 }

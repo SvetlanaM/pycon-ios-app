@@ -11,12 +11,9 @@ import TwitterKit
 
 class TwitterViewController: TWTRTimelineViewController {
     
-    
-
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor(red: 247/255.0, green: 249/255.0, blue: 252/255.0, alpha: 1.0)
-        
         let client = TWTRAPIClient()
     }
     
@@ -24,10 +21,6 @@ class TwitterViewController: TWTRTimelineViewController {
         let client = TWTRAPIClient()
         let dataSource = TWTRSearchTimelineDataSource(searchQuery: DataManager.sharedInstance.config.twitter!, APIClient: client)
         self.init(dataSource: dataSource)
-
-        
-        
-        // Show Tweet actions
         self.showTweetActions = true
     }
 

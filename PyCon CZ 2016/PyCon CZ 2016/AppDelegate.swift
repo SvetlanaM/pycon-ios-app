@@ -21,17 +21,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var controller : UIViewController?
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        
-        
         // Override point for customization after application launch.
         FIRApp.configure()
         Fabric.with([Twitter.self])
         UIApplication.sharedApplication().statusBarStyle = .LightContent
-        
         FIRDatabase.database().persistenceEnabled = true
-    
-        
-        
         return true
     }
     
@@ -59,7 +53,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
         
     }
-
-
 }
 
